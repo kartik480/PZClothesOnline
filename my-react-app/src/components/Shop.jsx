@@ -4,6 +4,10 @@ import heading1 from '../assets/heading1.png';
 import heading2 from '../assets/heading2.png';
 import heading3 from '../assets/heading3.jpg';
 import heading4 from '../assets/heading4.jpg';
+import b1 from '../assets/b1.jpg';
+import b2 from '../assets/b2.jpg';
+import b3 from '../assets/b3.jpg';
+import b4 from '../assets/b4.jpg';
 
 const Shop = () => {
   const [expandedCategory, setExpandedCategory] = useState('tshirts');
@@ -462,15 +466,15 @@ const Shop = () => {
           <h2 className="brands-title">Brands</h2>
           <div className="brands-grid">
             {[
-              { name: 'Naruto', image: 'naruto,anime', description: 'Believe It!' },
-              { name: 'Jujutsu Kaisen', image: 'jujutsu,kaisen', description: 'I\'m You' },
-              { name: 'One Piece', image: 'onepiece,anime', description: 'I\'m Gonna Be King of the Pirates!' },
-              { name: 'Solo Leveling', image: 'sololeveling,anime', description: 'I Alone Level Up' }
+              { name: 'Naruto', image: b1, description: 'Believe It!' },
+              { name: 'Jujutsu Kaisen', image: b2, description: 'I\'m You' },
+              { name: 'One Piece', image: b3, description: 'I\'m Gonna Be King of the Pirates!' },
+              { name: 'Solo Leveling', image: b4, description: 'I Alone Level Up' }
             ].map((brand, index) => (
               <div key={index} className="brand-card">
                 <div className="brand-image">
                   <img 
-                    src={`https://source.unsplash.com/400x500?${brand.image}`}
+                    src={brand.image}
                     alt={brand.name}
                     onError={(e) => {
                       e.target.src = `https://via.placeholder.com/400x500?text=${brand.name}`;

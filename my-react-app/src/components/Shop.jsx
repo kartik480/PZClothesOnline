@@ -307,56 +307,56 @@ const Shop = () => {
               <div className="carousel-slide">
                 <img 
                   src={heading1}
-                  alt="Featured Collection"
+                  alt="Summer Wear"
                   onError={(e) => {
-                    e.target.src = 'https://via.placeholder.com/800x400?text=Featured+Collection';
+                    e.target.src = 'https://via.placeholder.com/800x400?text=Summer+Wear';
                   }}
                 />
                 <div className="carousel-content">
-                  <h2>Featured Collection</h2>
-                  <p>Discover our latest designs</p>
+                  <h2>Summer Wear</h2>
+                  <p>Discover our latest summer collection</p>
                   <button className="shop-now-btn">Shop Now</button>
                 </div>
               </div>
               <div className="carousel-slide">
                 <img 
                   src={heading2}
-                  alt="Featured Collection 2"
+                  alt="Anime Collection"
                   onError={(e) => {
-                    e.target.src = 'https://via.placeholder.com/800x400?text=Featured+Collection+2';
+                    e.target.src = 'https://via.placeholder.com/800x400?text=Anime+Collection';
                   }}
                 />
                 <div className="carousel-content">
-                  <h2>Featured Collection</h2>
-                  <p>Discover our latest designs</p>
+                  <h2>Anime</h2>
+                  <p>Explore our exclusive anime merchandise</p>
                   <button className="shop-now-btn">Shop Now</button>
                 </div>
               </div>
               <div className="carousel-slide">
                 <img 
                   src={heading3}
-                  alt="Featured Collection 3"
+                  alt="Games Collection"
                   onError={(e) => {
-                    e.target.src = 'https://via.placeholder.com/800x400?text=Featured+Collection+3';
+                    e.target.src = 'https://via.placeholder.com/800x400?text=Games+Collection';
                   }}
                 />
                 <div className="carousel-content">
-                  <h2>Featured Collection</h2>
-                  <p>Discover our latest designs</p>
+                  <h2>Games</h2>
+                  <p>Check out our gaming collection</p>
                   <button className="shop-now-btn">Shop Now</button>
                 </div>
               </div>
               <div className="carousel-slide">
                 <img 
                   src={heading4}
-                  alt="Featured Collection 4"
+                  alt="PZN Brands"
                   onError={(e) => {
-                    e.target.src = 'https://via.placeholder.com/800x400?text=Featured+Collection+4';
+                    e.target.src = 'https://via.placeholder.com/800x400?text=PZN+Brands';
                   }}
                 />
                 <div className="carousel-content">
-                  <h2>Featured Collection</h2>
-                  <p>Discover our latest designs</p>
+                  <h2>#PZN Brands</h2>
+                  <p>Discover our exclusive brand collections</p>
                   <button className="shop-now-btn-alt">Shop Now</button>
                 </div>
               </div>
@@ -462,10 +462,10 @@ const Shop = () => {
           <h2 className="brands-title">Brands</h2>
           <div className="brands-grid">
             {[
-              { name: 'Nike', image: 'nike,logo', description: 'Just Do It' },
-              { name: 'Adidas', image: 'adidas,logo', description: 'Impossible Is Nothing' },
-              { name: 'Puma', image: 'puma,logo', description: 'Forever Faster' },
-              { name: 'Under Armour', image: 'underarmour,logo', description: 'The Only Way Is Through' }
+              { name: 'Naruto', image: 'naruto,anime', description: 'Believe It!' },
+              { name: 'Jujutsu Kaisen', image: 'jujutsu,kaisen', description: 'I\'m You' },
+              { name: 'One Piece', image: 'onepiece,anime', description: 'I\'m Gonna Be King of the Pirates!' },
+              { name: 'Solo Leveling', image: 'sololeveling,anime', description: 'I Alone Level Up' }
             ].map((brand, index) => (
               <div key={index} className="brand-card">
                 <div className="brand-image">

@@ -463,7 +463,7 @@ const Shop = () => {
     if (!selectedSubcategory) {
       return (
         <div className="brands-section">
-          <h2 className="brands-title">Brands</h2>
+          <h2 className="brands-title">Animes</h2>
           <div className="brands-grid">
             {[
               { name: 'Naruto', image: b1, description: 'Believe It!' },

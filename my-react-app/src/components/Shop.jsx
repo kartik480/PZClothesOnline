@@ -13,6 +13,7 @@ import cs1 from '../assets/cs1.png';
 import cs2 from '../assets/cs2.jpg';
 import cs3 from '../assets/cs3.jpg';
 import cs4 from '../assets/cs4.jpg';
+import download from '../assets/download.png';
 
 const Shop = () => {
   const [expandedCategory, setExpandedCategory] = useState(null);
@@ -795,10 +796,10 @@ const Shop = () => {
           <h2 className="brands-title">Animes</h2>
           <div className="brands-grid">
             {[
-              { name: 'Naruto', image: b1, description: 'Believe It!' },
+              { name: 'Naruto', image: download, description: 'Believe It!' },
               { name: 'Jujutsu Kaisen', image: b2, description: 'I\'m You' },
               { name: 'One Piece', image: b3, description: 'I\'m Gonna Be King of the Pirates!' },
-              { name: 'Solo Leveling', image: solo, description: 'I Alone Level Up' }
+              { name: 'Solo Leveling', image: b4, description: 'I Alone Level Up' }
             ].map((brand, index) => (
               <div key={index} className="brand-card">
                 <div className="brand-image">

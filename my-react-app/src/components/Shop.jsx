@@ -8,6 +8,11 @@ import b1 from '../assets/b1.jpg';
 import b2 from '../assets/b2.jpg';
 import b3 from '../assets/b3.jpg';
 import b4 from '../assets/b4.jpg';
+import solo from '../assets/solo.png';
+import cs1 from '../assets/cs1.png';
+import cs2 from '../assets/cs2.jpg';
+import cs3 from '../assets/cs3.jpg';
+import cs4 from '../assets/cs4.jpg';
 
 const Shop = () => {
   const [expandedCategory, setExpandedCategory] = useState(null);
@@ -717,7 +722,7 @@ const Shop = () => {
               <div key={index} className="coming-soon-card">
                 <div className="coming-soon-image">
                   <img 
-                    src={`https://source.unsplash.com/400x500?tshirt,upcoming,${index}`}
+                    src={index === 0 ? cs1 : index === 1 ? cs2 : index === 2 ? cs3 : cs4}
                     alt={`Upcoming Design ${index + 1}`}
                     onError={(e) => {
                       e.target.src = 'https://via.placeholder.com/400x500?text=Coming+Soon';
@@ -793,7 +798,7 @@ const Shop = () => {
               { name: 'Naruto', image: b1, description: 'Believe It!' },
               { name: 'Jujutsu Kaisen', image: b2, description: 'I\'m You' },
               { name: 'One Piece', image: b3, description: 'I\'m Gonna Be King of the Pirates!' },
-              { name: 'Solo Leveling', image: b4, description: 'I Alone Level Up' }
+              { name: 'Solo Leveling', image: solo, description: 'I Alone Level Up' }
             ].map((brand, index) => (
               <div key={index} className="brand-card">
                 <div className="brand-image">
@@ -825,6 +830,35 @@ const Shop = () => {
       );
     }
     return null;
+  };
+
+  const renderPanel = () => {
+    return (
+      <div className={`panel ${isPanelOpen ? 'open' : ''}`}>
+        <div className="panel-section">
+          <h3>Animes</h3>
+          <div className="panel-grid">
+            <div className="panel-item">
+              <img src={heading1} alt="Anime 1" />
+              <span>Anime 1</span>
+            </div>
+            <div className="panel-item">
+              <img src={heading2} alt="Anime 2" />
+              <span>Anime 2</span>
+            </div>
+            <div className="panel-item">
+              <img src={heading3} alt="Anime 3" />
+              <span>Anime 3</span>
+            </div>
+            <div className="panel-item">
+              <img src={solo} alt="Solo Leveling" />
+              <span>Solo Leveling</span>
+            </div>
+          </div>
+        </div>
+        {/* ... rest of the panel sections ... */}
+      </div>
+    );
   };
 
   return (

@@ -10,14 +10,14 @@ import b3 from '../assets/b3.jpg';
 import b4 from '../assets/b4.jpg';
 
 const Shop = () => {
-  const [expandedCategory, setExpandedCategory] = useState('tshirts');
-  const [selectedSubcategory, setSelectedSubcategory] = useState('');
+  const [expandedCategory, setExpandedCategory] = useState(null);
+  const [selectedSubcategory, setSelectedSubcategory] = useState(null);
   const [cart, setCart] = useState([]);
   const [isPanelOpen, setIsPanelOpen] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
-  const [selectedSize, setSelectedSize] = useState('');
-  const [selectedDressType, setSelectedDressType] = useState('casual');
+  const [selectedSize, setSelectedSize] = useState('M');
+  const [selectedDressType, setSelectedDressType] = useState('regular');
   const [selectedShirtType, setSelectedShirtType] = useState('regular');
   const [selectedUnit, setSelectedUnit] = useState('cm');
   const carouselRef = useRef(null);
@@ -86,16 +86,15 @@ const Shop = () => {
   const handleCategoryClick = (category) => {
     if (expandedCategory === category) {
       setExpandedCategory(null);
-      setSelectedSubcategory('');
+      setSelectedSubcategory(null);
     } else {
       setExpandedCategory(category);
-      setSelectedSubcategory('');
+      setSelectedSubcategory(null);
     }
   };
 
   const handleSubcategoryClick = (subcategory) => {
     setSelectedSubcategory(subcategory);
-    setIsAutoPlaying(false);
   };
 
   const handleAddToCart = (product) => {
@@ -127,6 +126,18 @@ const Shop = () => {
   const handleSlideClick = (index) => {
     setCurrentSlide(index);
     setIsAutoPlaying(false);
+  };
+
+  const handleSearch = () => {
+    // Implementation of search functionality
+  };
+
+  const handleReset = () => {
+    // Implementation of reset functionality
+  };
+
+  const handleSubmit = () => {
+    // Implementation of submit functionality
   };
 
   const renderProductGrid = () => {
@@ -389,6 +400,9 @@ const Shop = () => {
                     XXXL
                   </button>
                 </div>
+                <button className="submit-button" onClick={() => handleSubmit()}>
+                  Submit
+                </button>
               </div>
             </div>
           </div>
@@ -714,28 +728,28 @@ const Shop = () => {
           </button>
           <div className={`subcategory-list ${expandedCategory === 'brands' ? 'expanded' : ''}`}>
             <button 
-              className={`subcategory-btn ${selectedSubcategory === 'Nike' ? 'active' : ''}`}
-              onClick={() => handleSubcategoryClick('Nike')}
+              className={`subcategory-btn ${selectedSubcategory === 'Animes' ? 'active' : ''}`}
+              onClick={() => handleSubcategoryClick('Animes')}
             >
-              Nike
+              Animes
             </button>
             <button 
-              className={`subcategory-btn ${selectedSubcategory === 'Adidas' ? 'active' : ''}`}
-              onClick={() => handleSubcategoryClick('Adidas')}
+              className={`subcategory-btn ${selectedSubcategory === 'Jujutsu Kaisen' ? 'active' : ''}`}
+              onClick={() => handleSubcategoryClick('Jujutsu Kaisen')}
             >
-              Adidas
+              Jujutsu Kaisen
             </button>
             <button 
-              className={`subcategory-btn ${selectedSubcategory === 'Puma' ? 'active' : ''}`}
-              onClick={() => handleSubcategoryClick('Puma')}
+              className={`subcategory-btn ${selectedSubcategory === 'One Piece' ? 'active' : ''}`}
+              onClick={() => handleSubcategoryClick('One Piece')}
             >
-              Puma
+              One Piece
             </button>
             <button 
-              className={`subcategory-btn ${selectedSubcategory === 'Under Armour' ? 'active' : ''}`}
-              onClick={() => handleSubcategoryClick('Under Armour')}
+              className={`subcategory-btn ${selectedSubcategory === 'Solo Leveling' ? 'active' : ''}`}
+              onClick={() => handleSubcategoryClick('Solo Leveling')}
             >
-              Under Armour
+              Solo Leveling
             </button>
           </div>
 
@@ -768,10 +782,38 @@ const Shop = () => {
         {renderComingSoon()}
         {renderCategories()}
         {renderBrands()}
+        {selectedSubcategory === 'Color' && (
+          <div className="color-section">
+            <h3>Select Color</h3>
+            <div className="tshirt-outline">
+              <div className="tshirt-body"></div>
+              <div className="tshirt-sleeve left"></div>
+              <div className="tshirt-sleeve right"></div>
+              <div className="tshirt-collar"></div>
+            </div>
+            <div className="color-options">
+              <div className="color-box" style={{ backgroundColor: '#000000' }}></div>
+              <div className="color-box" style={{ backgroundColor: '#FFFFFF', border: '1px solid #ddd' }}></div>
+              <div className="color-box" style={{ backgroundColor: '#FF0000' }}></div>
+              <div className="color-box" style={{ backgroundColor: '#0000FF' }}></div>
+              <div className="color-box" style={{ backgroundColor: '#008000' }}></div>
+              <div className="color-box" style={{ backgroundColor: '#FFA500' }}></div>
+              <div className="color-box" style={{ backgroundColor: '#800080' }}></div>
+              <div className="color-box" style={{ backgroundColor: '#FFC0CB' }}></div>
+              <div className="color-box" style={{ backgroundColor: '#A52A2A' }}></div>
+              <div className="color-box" style={{ backgroundColor: '#808080' }}></div>
+              <div className="color-box" style={{ backgroundColor: '#FFD700' }}></div>
+              <div className="color-box" style={{ backgroundColor: '#00FFFF' }}></div>
+              <div className="color-box" style={{ backgroundColor: '#FF00FF' }}></div>
+              <div className="color-box" style={{ backgroundColor: '#4B0082' }}></div>
+              <div className="color-box" style={{ backgroundColor: '#FF4500' }}></div>
+            </div>
+          </div>
+        )}
         {renderProductGrid()}
       </div>
     </div>
   );
 };
 
-export default Shop; 
+export default Shop;

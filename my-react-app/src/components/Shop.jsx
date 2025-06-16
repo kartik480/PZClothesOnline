@@ -19,6 +19,7 @@ const Shop = () => {
   const [selectedSize, setSelectedSize] = useState('');
   const [selectedDressType, setSelectedDressType] = useState('casual');
   const [selectedShirtType, setSelectedShirtType] = useState('regular');
+  const [selectedUnit, setSelectedUnit] = useState('cm');
   const carouselRef = useRef(null);
   const autoPlayInterval = useRef(null);
 
@@ -33,12 +34,10 @@ const Shop = () => {
   };
 
   const dressTypes = [
-    { id: 'casual', name: 'Casual Dress', description: 'Comfortable everyday wear' },
-    { id: 'formal', name: 'Formal Dress', description: 'Elegant and sophisticated' },
-    { id: 'party', name: 'Party Dress', description: 'Perfect for special occasions' },
-    { id: 'summer', name: 'Summer Dress', description: 'Light and breezy' },
-    { id: 'maxi', name: 'Maxi Dress', description: 'Long and flowing' },
-    { id: 'mini', name: 'Mini Dress', description: 'Short and stylish' }
+    { id: 'regular', name: 'Regular Fit', description: 'Classic comfortable fit' },
+    { id: 'slim', name: 'Slim Fit', description: 'Modern fitted style' },
+    { id: 'oversized', name: 'Oversized', description: 'Relaxed and roomy' },
+    { id: 'muscle', name: 'Muscle Fit', description: 'Athletic cut with wider shoulders' }
   ];
 
   const shirtTypes = [
@@ -253,46 +252,143 @@ const Shop = () => {
       return (
         <div className="size-measurement-container">
           <div className="dress-type-selection">
-            <h3>Select Dress Type</h3>
+            <h3>Select T-Shirt Style</h3>
             <div className="dress-types-grid">
-              {dressTypes.map((type) => (
-                <div 
-                  key={type.id}
-                  className={`dress-type-card ${selectedDressType === type.id ? 'selected' : ''}`}
-                  onClick={() => handleDressTypeChange(type.id)}
-                >
-                  <div className={`dress-outline ${type.id}`}></div>
-                  <h4>{type.name}</h4>
-                  <p>{type.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="size-outline">
-            <div className="size-diagram">
-              <div className={`outline-dress size-${selectedSize.toLowerCase()} type-${selectedDressType}`}></div>
-              <div className="measurement-lines">
-                <div className="measurement shoulder">Shoulder: {currentMeasurements.shoulder}"</div>
-                <div className="measurement chest">Chest: {currentMeasurements.chest}"</div>
-                <div className="measurement waist">Waist: {currentMeasurements.waist}"</div>
-                <div className="measurement length">Length: {currentMeasurements.length}"</div>
+              <div 
+                className={`dress-type-card ${selectedDressType === 'regular' ? 'selected' : ''}`}
+                onClick={() => setSelectedDressType('regular')}
+              >
+                <div className="dress-outline regular"></div>
+                <h4>Regular Fit</h4>
+                <p>Classic comfortable fit</p>
+              </div>
+              <div 
+                className={`dress-type-card ${selectedDressType === 'slim' ? 'selected' : ''}`}
+                onClick={() => setSelectedDressType('slim')}
+              >
+                <div className="dress-outline slim"></div>
+                <h4>Slim Fit</h4>
+                <p>Modern fitted style</p>
+              </div>
+              <div 
+                className={`dress-type-card ${selectedDressType === 'oversized' ? 'selected' : ''}`}
+                onClick={() => setSelectedDressType('oversized')}
+              >
+                <div className="dress-outline oversized"></div>
+                <h4>Oversized</h4>
+                <p>Relaxed and roomy</p>
+              </div>
+              <div 
+                className={`dress-type-card ${selectedDressType === 'muscle' ? 'selected' : ''}`}
+                onClick={() => setSelectedDressType('muscle')}
+              >
+                <div className="dress-outline muscle"></div>
+                <h4>Muscle Fit</h4>
+                <p>Athletic cut with wider shoulders</p>
               </div>
             </div>
-            <div className="size-selection">
-              <h3>Select Size</h3>
-              <div className="size-checkboxes">
-                {['S', 'M', 'L', 'XL', 'XXL', 'XXXL'].map((size) => (
-                  <label key={size} className={`size-option ${selectedSize === size ? 'selected' : ''}`}>
-                    <input 
-                      type="radio" 
-                      name="size" 
-                      value={size}
-                      checked={selectedSize === size}
-                      onChange={() => handleSizeChange(size)}
-                    />
-                    <span className="size-label">{size}</span>
-                  </label>
-                ))}
+
+            <div className="calculator-container">
+              <div className="inches-calculator">
+                <h3>Size Calculator</h3>
+                <div className="unit-selector">
+                  <button 
+                    className={selectedUnit === 'cm' ? 'active' : ''} 
+                    onClick={() => setSelectedUnit('cm')}
+                  >
+                    Centimeters
+                  </button>
+                  <button 
+                    className={selectedUnit === 'inches' ? 'active' : ''} 
+                    onClick={() => setSelectedUnit('inches')}
+                  >
+                    Inches
+                  </button>
+                </div>
+                <div className="measurements-grid">
+                  <div className="measurement-item">
+                    <span>Shoulder:</span>
+                    <div className="measurement-values">
+                      <span>
+                        {selectedUnit === 'cm' 
+                          ? `${currentMeasurements.shoulder} cm`
+                          : `${(currentMeasurements.shoulder / 2.54).toFixed(1)}"`
+                        }
+                      </span>
+                    </div>
+                  </div>
+                  <div className="measurement-item">
+                    <span>Chest:</span>
+                    <div className="measurement-values">
+                      <span>
+                        {selectedUnit === 'cm' 
+                          ? `${currentMeasurements.chest} cm`
+                          : `${(currentMeasurements.chest / 2.54).toFixed(1)}"`
+                        }
+                      </span>
+                    </div>
+                  </div>
+                  <div className="measurement-item">
+                    <span>Length:</span>
+                    <div className="measurement-values">
+                      <span>
+                        {selectedUnit === 'cm' 
+                          ? `${currentMeasurements.length} cm`
+                          : `${(currentMeasurements.length / 2.54).toFixed(1)}"`
+                        }
+                      </span>
+                    </div>
+                  </div>
+                  <div className="measurement-item">
+                    <span>Sleeve:</span>
+                    <div className="measurement-values">
+                      <span>
+                        {selectedUnit === 'cm' 
+                          ? `${currentMeasurements.waist} cm`
+                          : `${(currentMeasurements.waist / 2.54).toFixed(1)}"`
+                        }
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div className="size-options">
+                  <button 
+                    className={`size-option ${selectedSize === 'S' ? 'active' : ''}`}
+                    onClick={() => setSelectedSize('S')}
+                  >
+                    S
+                  </button>
+                  <button 
+                    className={`size-option ${selectedSize === 'M' ? 'active' : ''}`}
+                    onClick={() => setSelectedSize('M')}
+                  >
+                    M
+                  </button>
+                  <button 
+                    className={`size-option ${selectedSize === 'L' ? 'active' : ''}`}
+                    onClick={() => setSelectedSize('L')}
+                  >
+                    L
+                  </button>
+                  <button 
+                    className={`size-option ${selectedSize === 'XL' ? 'active' : ''}`}
+                    onClick={() => setSelectedSize('XL')}
+                  >
+                    XL
+                  </button>
+                  <button 
+                    className={`size-option ${selectedSize === 'XXL' ? 'active' : ''}`}
+                    onClick={() => setSelectedSize('XXL')}
+                  >
+                    XXL
+                  </button>
+                  <button 
+                    className={`size-option ${selectedSize === 'XXXL' ? 'active' : ''}`}
+                    onClick={() => setSelectedSize('XXXL')}
+                  >
+                    XXXL
+                  </button>
+                </div>
               </div>
             </div>
           </div>

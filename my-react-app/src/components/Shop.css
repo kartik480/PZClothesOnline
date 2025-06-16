@@ -1217,176 +1217,324 @@ button:focus {
 }
 
 .size-diagram {
-  position: relative;
-  width: 300px;
-  height: 500px;
-  background: #f8f9fa;
-  border-radius: 8px;
+  margin-top: 2rem;
   padding: 2rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.diagram-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 6rem;
+  padding: 2rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+  margin-top: 2rem;
+}
+
+.diagram-left {
+  flex: 0.6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  position: relative;
 }
 
 .outline-dress {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 200px;
-  height: 400px;
+  position: relative;
   border: 2px solid #333;
-  border-radius: 100px 100px 0 0;
+  border-radius: 20px 20px 0 0;
   background: white;
   transition: all 0.3s ease;
 }
 
-/* Size-specific dress outlines */
-.outline-dress.size-s {
+/* T-shirt style variations */
+.outline-dress.regular {
+  width: 200px;
+  height: 300px;
+}
+
+.outline-dress.regular::before,
+.outline-dress.regular::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 45px;
+  height: 60px;
+  border: 2px solid #333;
+  border-radius: 22px 0 0 22px;
+}
+
+.outline-dress.regular::before {
+  left: -45px;
+  border-right: none;
+}
+
+.outline-dress.regular::after {
+  right: -45px;
+  border-left: none;
+  transform: scaleX(-1);
+}
+
+.outline-dress.slim {
   width: 180px;
-  height: 360px;
+  height: 280px;
+}
+
+.outline-dress.slim::before,
+.outline-dress.slim::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 35px;
+  height: 50px;
+  border: 2px solid #333;
+  border-radius: 17px 0 0 17px;
+}
+
+.outline-dress.slim::before {
+  left: -35px;
+  border-right: none;
+}
+
+.outline-dress.slim::after {
+  right: -35px;
+  border-left: none;
+  transform: scaleX(-1);
+}
+
+.outline-dress.oversized {
+  width: 240px;
+  height: 320px;
+}
+
+.outline-dress.oversized::before,
+.outline-dress.oversized::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 60px;
+  height: 70px;
+  border: 2px solid #333;
+  border-radius: 30px 0 0 30px;
+}
+
+.outline-dress.oversized::before {
+  left: -60px;
+  border-right: none;
+}
+
+.outline-dress.oversized::after {
+  right: -60px;
+  border-left: none;
+  transform: scaleX(-1);
+}
+
+.outline-dress.muscle {
+  width: 220px;
+  height: 300px;
+}
+
+.outline-dress.muscle::before,
+.outline-dress.muscle::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 70px;
+  height: 80px;
+  border: 2px solid #333;
+  border-radius: 35px 0 0 35px;
+}
+
+.outline-dress.muscle::before {
+  left: -70px;
+  border-right: none;
+}
+
+.outline-dress.muscle::after {
+  right: -70px;
+  border-left: none;
+  transform: scaleX(-1);
+}
+
+/* Size variations */
+.outline-dress.size-s {
+  transform: scale(0.8);
 }
 
 .outline-dress.size-m {
-  width: 200px;
-  height: 400px;
+  transform: scale(1);
 }
 
 .outline-dress.size-l {
-  width: 220px;
-  height: 440px;
+  transform: scale(1.2);
 }
 
 .outline-dress.size-xl {
-  width: 240px;
-  height: 480px;
+  transform: scale(1.4);
 }
 
 .outline-dress.size-xxl {
-  width: 260px;
-  height: 520px;
+  transform: scale(1.6);
 }
 
 .outline-dress.size-xxxl {
-  width: 280px;
-  height: 560px;
+  transform: scale(1.8);
 }
 
 .measurement-lines {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  z-index: 1;
 }
 
-.measurement {
-  position: absolute;
+.measurement-line {
   background: rgba(255, 255, 255, 0.9);
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
   border-radius: 4px;
-  font-size: 0.9rem;
-  color: #333;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.shoulder {
-  top: 30%;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.chest {
-  top: 45%;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.waist {
-  top: 60%;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.length {
-  top: 75%;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.size-selection {
-  flex: 1;
-  max-width: 300px;
-}
-
-.size-selection h3 {
-  font-size: 1.5rem;
+.measurement-line span {
+  font-size: 0.9rem;
   color: #333;
-  margin-bottom: 1.5rem;
-  text-align: center;
 }
 
-.size-checkboxes {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-}
-
-.size-option {
+.calculator-right {
+  flex: 1.4;
   display: flex;
+  justify-content: flex-end;
   align-items: center;
-  gap: 0.5rem;
-  cursor: pointer;
+  padding-right: 4rem;
+}
+
+.calculator-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem auto;
+  max-width: 800px;
+}
+
+.inches-calculator {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.inches-calculator h3 {
+  color: #000;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.measurements-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.measurement-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 0.5rem;
-  border: 1px solid #ddd;
+  background: #f8f8f8;
   border-radius: 4px;
-  transition: all 0.3s ease;
 }
 
-.size-option:hover {
-  background: #f8f9fa;
-  border-color: #ff0000;
+.measurement-values {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
 }
 
-.size-option.selected {
-  background: #ff0000;
-  border-color: #ff0000;
-  color: white;
+.measurement-values span {
+  color: #000;
+  font-size: 0.9rem;
 }
 
-.size-option.selected .size-label {
-  color: white;
-}
-
-.size-option input[type="radio"] {
-  width: 18px;
-  height: 18px;
-  cursor: pointer;
-  accent-color: #ff0000;
-}
-
-.size-label {
-  font-size: 1.1rem;
-  color: #333;
+.measurement-item span:first-child {
+  color: #666;
   font-weight: 500;
 }
 
+.measurement-item span:last-child {
+  color: #333;
+  font-weight: 600;
+}
+
+.size-checkboxes {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.size-checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.size-checkbox input[type="radio"] {
+  display: none;
+}
+
+.size-checkbox span {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #666;
+}
+
+.size-checkbox:hover {
+  border-color: #ff0000;
+  background: #fff5f5;
+}
+
+.size-checkbox.selected {
+  background: #ff0000;
+  border-color: #ff0000;
+}
+
+.size-checkbox.selected span {
+  color: white;
+}
+
 @media (max-width: 768px) {
-  .size-outline {
-    flex-direction: column;
-    gap: 2rem;
+  .inches-calculator {
+    max-width: 100%;
   }
+}
 
-  .size-diagram {
-    width: 250px;
-    height: 400px;
-  }
-
-  .outline-dress {
-    width: 150px;
-    height: 300px;
-  }
-
-  .size-checkboxes {
-    grid-template-columns: repeat(2, 1fr);
-  }
+/* Remove all diagram-related styles */
+.size-outline,
+.size-diagram,
+.diagram-container,
+.diagram-left,
+.calculator-right {
+  display: none;
 }
 
 /* Dress Type Selection Styles */
@@ -1445,187 +1593,146 @@ button:focus {
 }
 
 .dress-outline {
-  width: 100px;
-  height: 150px;
+  width: 90px;
+  height: 110px;
   margin: 0 auto;
   position: relative;
   transition: all 0.3s ease;
-}
-
-/* Dress Type Outlines */
-.dress-outline.casual {
-  border: 2px solid #333;
-  border-radius: 50px 50px 0 0;
   background: white;
 }
 
-.dress-outline.formal {
+/* T-shirt Type Outlines */
+.dress-outline.regular {
   border: 2px solid #333;
-  border-radius: 30px 30px 0 0;
-  background: white;
+  border-radius: 15px 15px 0 0;
   position: relative;
 }
 
-.dress-outline.formal::before {
+.dress-outline.regular::before,
+.dress-outline.regular::after {
   content: '';
   position: absolute;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 40px;
-  height: 20px;
-  border: 2px solid #333;
-  border-bottom: none;
-  border-radius: 20px 20px 0 0;
-}
-
-.dress-outline.party {
-  border: 2px solid #333;
-  border-radius: 60px 60px 0 0;
-  background: white;
-  position: relative;
-}
-
-.dress-outline.party::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 20px;
-  border: 2px solid #333;
-  border-top: none;
-  border-radius: 0 0 20px 20px;
-}
-
-.dress-outline.summer {
-  border: 2px solid #333;
-  border-radius: 40px 40px 0 0;
-  background: white;
-  position: relative;
-}
-
-.dress-outline.summer::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
+  width: 22px;
   height: 30px;
   border: 2px solid #333;
-  border-bottom: none;
-  border-radius: 20px 20px 0 0;
+  border-radius: 11px 0 0 11px;
 }
 
-.dress-outline.maxi {
+.dress-outline.regular::before {
+  left: -22px;
+  border-right: none;
+}
+
+.dress-outline.regular::after {
+  right: -22px;
+  border-left: none;
+  transform: scaleX(-1);
+}
+
+.dress-outline.slim {
   border: 2px solid #333;
-  border-radius: 30px 30px 0 0;
-  background: white;
+  border-radius: 15px 15px 0 0;
+  width: 70px;
   position: relative;
 }
 
-.dress-outline.maxi::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 40px;
-  border: 2px solid #333;
-  border-top: none;
-  border-radius: 0 0 30px 30px;
-}
-
-.dress-outline.mini {
-  border: 2px solid #333;
-  border-radius: 40px 40px 0 0;
-  background: white;
-  height: 100px;
-}
-
-/* Update existing outline-dress styles */
-.outline-dress {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 200px;
-  height: 400px;
-  border: 2px solid #333;
-  border-radius: 100px 100px 0 0;
-  background: white;
-  transition: all 0.3s ease;
-}
-
-/* Dress type variations for the main outline */
-.outline-dress.type-formal {
-  border-radius: 50px 50px 0 0;
-}
-
-.outline-dress.type-formal::before {
+.dress-outline.slim::before,
+.dress-outline.slim::after {
   content: '';
   position: absolute;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 30px;
+  width: 18px;
+  height: 25px;
   border: 2px solid #333;
-  border-bottom: none;
-  border-radius: 30px 30px 0 0;
+  border-radius: 9px 0 0 9px;
 }
 
-.outline-dress.type-party {
-  border-radius: 120px 120px 0 0;
+.dress-outline.slim::before {
+  left: -18px;
+  border-right: none;
 }
 
-.outline-dress.type-party::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 40px;
+.dress-outline.slim::after {
+  right: -18px;
+  border-left: none;
+  transform: scaleX(-1);
+}
+
+.dress-outline.oversized {
   border: 2px solid #333;
-  border-top: none;
-  border-radius: 0 0 40px 40px;
+  border-radius: 15px 15px 0 0;
+  width: 110px;
+  position: relative;
 }
 
-.outline-dress.type-summer {
-  border-radius: 80px 80px 0 0;
-}
-
-.outline-dress.type-summer::before {
+.dress-outline.oversized::before,
+.dress-outline.oversized::after {
   content: '';
   position: absolute;
   top: 0;
-  left: 0;
-  right: 0;
-  height: 60px;
+  width: 30px;
+  height: 35px;
   border: 2px solid #333;
-  border-bottom: none;
-  border-radius: 40px 40px 0 0;
+  border-radius: 15px 0 0 15px;
 }
 
-.outline-dress.type-maxi {
-  border-radius: 60px 60px 0 0;
+.dress-outline.oversized::before {
+  left: -30px;
+  border-right: none;
 }
 
-.outline-dress.type-maxi::after {
+.dress-outline.oversized::after {
+  right: -30px;
+  border-left: none;
+  transform: scaleX(-1);
+}
+
+.dress-outline.muscle {
+  border: 2px solid #333;
+  border-radius: 15px 15px 0 0;
+  position: relative;
+}
+
+.dress-outline.muscle::before,
+.dress-outline.muscle::after {
   content: '';
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 80px;
+  top: 0;
+  width: 35px;
+  height: 40px;
   border: 2px solid #333;
-  border-top: none;
-  border-radius: 0 0 60px 60px;
+  border-radius: 17px 0 0 17px;
 }
 
-.outline-dress.type-mini {
-  height: 300px;
-  border-radius: 80px 80px 0 0;
+.dress-outline.muscle::before {
+  left: -35px;
+  border-right: none;
+}
+
+.dress-outline.muscle::after {
+  right: -35px;
+  border-left: none;
+  transform: scaleX(-1);
+}
+
+/* Add hover effects */
+.dress-type-card:hover .dress-outline {
+  transform: scale(1.1);
+}
+
+.dress-type-card:hover .dress-outline::before,
+.dress-type-card:hover .dress-outline::after {
+  transform: scale(1.1);
+}
+
+/* Add shadow effect */
+.dress-outline {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dress-type-card:hover .dress-outline {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 @media (max-width: 768px) {
@@ -1638,4 +1745,68 @@ button:focus {
     width: 80px;
     height: 120px;
   }
+}
+
+.unit-selector {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  justify-content: center;
+}
+
+.unit-selector button {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ddd;
+  background: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: #000;
+  transition: all 0.3s ease;
+}
+
+.unit-selector button.active {
+  background: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.unit-selector button:hover:not(.active) {
+  background: #f8f8f8;
+  color: #000;
+}
+
+.size-options {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.size-option {
+  width: 45px;
+  height: 45px;
+  border: 2px solid #ddd;
+  background: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.size-option:hover {
+  border-color: #007bff;
+  background: #f8f8f8;
+}
+
+.size-option.active {
+  background: #007bff;
+  color: white;
+  border-color: #007bff;
 } 

@@ -23,6 +23,7 @@ const Shop = () => {
   const [selectedStyle, setSelectedStyle] = useState('regular');
   const [showTshirtOutline, setShowTshirtOutline] = useState(false);
   const [currentPage, setCurrentPage] = useState('size');
+  const [selectedColor, setSelectedColor] = useState('#FFFFFF');
   const carouselRef = useRef(null);
   const autoPlayInterval = useRef(null);
 
@@ -98,6 +99,10 @@ const Shop = () => {
 
   const handleSubcategoryClick = (subcategory) => {
     setSelectedSubcategory(subcategory);
+    if (subcategory === 'Color') {
+      setCurrentPage('color');
+      setShowTshirtOutline(true);
+    }
   };
 
   const handleAddToCart = (product) => {
@@ -160,6 +165,10 @@ const Shop = () => {
     setShowTshirtOutline(true);
     setCurrentPage('color');
     setSelectedSubcategory('Color');
+  };
+
+  const handleColorSelect = (color) => {
+    setSelectedColor(color);
   };
 
   const renderProductGrid = () => {
@@ -449,27 +458,142 @@ const Shop = () => {
       return (
         <div className="color-section">
           <h2>Select Color</h2>
-          {showTshirtOutline && (
-            <div className="tshirt-preview">
-              <div className={`outline-dress ${selectedStyle}`}></div>
+          <div className="color-list-box">
+            <div className="list-item">Classic Black</div>
+            <div className="list-item">Pure White</div>
+            <div className="list-item">Navy Blue</div>
+            <div className="list-item">Burgundy Red</div>
+            <div className="list-item">Forest Green</div>
+            <div className="list-item">Royal Purple</div>
+            <div className="list-item">Sunset Orange</div>
+            <div className="list-item">Sky Blue</div>
+            <div className="list-item">Charcoal Gray</div>
+            <div className="list-item">Crimson Red</div>
+            <div className="list-item">Emerald Green</div>
+            <div className="list-item">Deep Teal</div>
+          </div>
+
+          {!selectedStyle && (
+            <div className="style-selection-message">
+              <p>Please select your T-shirt style first before choosing a color.</p>
+              <button 
+                className="go-back-button"
+                onClick={() => {
+                  setCurrentPage('size');
+                  setSelectedSubcategory('Size Calculator');
+                }}
+              >
+                Go to Style Selection
+              </button>
             </div>
           )}
-          <div className="color-options">
-            <div className="color-box" style={{ backgroundColor: '#000000' }}></div>
-            <div className="color-box" style={{ backgroundColor: '#FFFFFF', border: '1px solid #ddd' }}></div>
-            <div className="color-box" style={{ backgroundColor: '#FF0000' }}></div>
-            <div className="color-box" style={{ backgroundColor: '#0000FF' }}></div>
-            <div className="color-box" style={{ backgroundColor: '#008000' }}></div>
-            <div className="color-box" style={{ backgroundColor: '#FFA500' }}></div>
-            <div className="color-box" style={{ backgroundColor: '#800080' }}></div>
-            <div className="color-box" style={{ backgroundColor: '#FFC0CB' }}></div>
-            <div className="color-box" style={{ backgroundColor: '#A52A2A' }}></div>
-            <div className="color-box" style={{ backgroundColor: '#808080' }}></div>
-            <div className="color-box" style={{ backgroundColor: '#FFD700' }}></div>
-            <div className="color-box" style={{ backgroundColor: '#00FFFF' }}></div>
-            <div className="color-box" style={{ backgroundColor: '#FF00FF' }}></div>
-            <div className="color-box" style={{ backgroundColor: '#4B0082' }}></div>
-            <div className="color-box" style={{ backgroundColor: '#FF4500' }}></div>
+          {selectedStyle && (
+            <>
+              <div className="tshirt-preview">
+                <div 
+                  className={`outline-dress ${selectedStyle}`}
+                  style={{ 
+                    backgroundColor: selectedColor,
+                    borderColor: selectedColor === '#FFFFFF' ? '#333' : selectedColor
+                  }}
+                ></div>
+              </div>
+              <div className="color-options">
+                <div 
+                  className={`color-box ${selectedColor === '#000000' ? 'selected' : ''}`} 
+                  style={{ backgroundColor: '#000000' }}
+                  onClick={() => handleColorSelect('#000000')}
+                ></div>
+                <div 
+                  className={`color-box ${selectedColor === '#FFFFFF' ? 'selected' : ''}`} 
+                  style={{ backgroundColor: '#FFFFFF', border: '1px solid #ddd' }}
+                  onClick={() => handleColorSelect('#FFFFFF')}
+                ></div>
+                <div 
+                  className={`color-box ${selectedColor === '#FF0000' ? 'selected' : ''}`} 
+                  style={{ backgroundColor: '#FF0000' }}
+                  onClick={() => handleColorSelect('#FF0000')}
+                ></div>
+                <div 
+                  className={`color-box ${selectedColor === '#0000FF' ? 'selected' : ''}`} 
+                  style={{ backgroundColor: '#0000FF' }}
+                  onClick={() => handleColorSelect('#0000FF')}
+                ></div>
+                <div 
+                  className={`color-box ${selectedColor === '#008000' ? 'selected' : ''}`} 
+                  style={{ backgroundColor: '#008000' }}
+                  onClick={() => handleColorSelect('#008000')}
+                ></div>
+                <div 
+                  className={`color-box ${selectedColor === '#FFA500' ? 'selected' : ''}`} 
+                  style={{ backgroundColor: '#FFA500' }}
+                  onClick={() => handleColorSelect('#FFA500')}
+                ></div>
+                <div 
+                  className={`color-box ${selectedColor === '#800080' ? 'selected' : ''}`} 
+                  style={{ backgroundColor: '#800080' }}
+                  onClick={() => handleColorSelect('#800080')}
+                ></div>
+                <div 
+                  className={`color-box ${selectedColor === '#FFC0CB' ? 'selected' : ''}`} 
+                  style={{ backgroundColor: '#FFC0CB' }}
+                  onClick={() => handleColorSelect('#FFC0CB')}
+                ></div>
+                <div 
+                  className={`color-box ${selectedColor === '#A52A2A' ? 'selected' : ''}`} 
+                  style={{ backgroundColor: '#A52A2A' }}
+                  onClick={() => handleColorSelect('#A52A2A')}
+                ></div>
+                <div 
+                  className={`color-box ${selectedColor === '#808080' ? 'selected' : ''}`} 
+                  style={{ backgroundColor: '#808080' }}
+                  onClick={() => handleColorSelect('#808080')}
+                ></div>
+                <div 
+                  className={`color-box ${selectedColor === '#FFD700' ? 'selected' : ''}`} 
+                  style={{ backgroundColor: '#FFD700' }}
+                  onClick={() => handleColorSelect('#FFD700')}
+                ></div>
+                <div 
+                  className={`color-box ${selectedColor === '#00FFFF' ? 'selected' : ''}`} 
+                  style={{ backgroundColor: '#00FFFF' }}
+                  onClick={() => handleColorSelect('#00FFFF')}
+                ></div>
+                <div 
+                  className={`color-box ${selectedColor === '#FF00FF' ? 'selected' : ''}`} 
+                  style={{ backgroundColor: '#FF00FF' }}
+                  onClick={() => handleColorSelect('#FF00FF')}
+                ></div>
+                <div 
+                  className={`color-box ${selectedColor === '#4B0082' ? 'selected' : ''}`} 
+                  style={{ backgroundColor: '#4B0082' }}
+                  onClick={() => handleColorSelect('#4B0082')}
+                ></div>
+                <div 
+                  className={`color-box ${selectedColor === '#FF4500' ? 'selected' : ''}`} 
+                  style={{ backgroundColor: '#FF4500' }}
+                  onClick={() => handleColorSelect('#FF4500')}
+                ></div>
+              </div>
+            </>
+          )}
+
+          <div className="drag-drop-section">
+            <h3>Drag and Drop</h3>
+            <div className="drag-drop-boxes">
+              <div className="drag-box"></div>
+              <div className="drag-box"></div>
+              <div className="drag-box"></div>
+              <div className="drag-box"></div>
+              <div className="drag-box"></div>
+              <div className="drag-box"></div>
+              <div className="drag-box"></div>
+              <div className="drag-box"></div>
+              <div className="drag-box"></div>
+              <div className="drag-box"></div>
+              <div className="drag-box"></div>
+              <div className="drag-box"></div>
+            </div>
           </div>
         </div>
       );

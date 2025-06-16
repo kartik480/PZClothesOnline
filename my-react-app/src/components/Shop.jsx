@@ -20,6 +20,9 @@ const Shop = () => {
   const [selectedDressType, setSelectedDressType] = useState('regular');
   const [selectedShirtType, setSelectedShirtType] = useState('regular');
   const [selectedUnit, setSelectedUnit] = useState('cm');
+  const [selectedStyle, setSelectedStyle] = useState('regular');
+  const [showTshirtOutline, setShowTshirtOutline] = useState(false);
+  const [currentPage, setCurrentPage] = useState('size');
   const carouselRef = useRef(null);
   const autoPlayInterval = useRef(null);
 
@@ -137,7 +140,26 @@ const Shop = () => {
   };
 
   const handleSubmit = () => {
-    // Implementation of submit functionality
+    // Set the style based on selected dress type
+    switch (selectedDressType) {
+      case 'regular':
+        setSelectedStyle('regular');
+        break;
+      case 'slim':
+        setSelectedStyle('slim');
+        break;
+      case 'oversized':
+        setSelectedStyle('oversized');
+        break;
+      case 'muscle':
+        setSelectedStyle('muscle');
+        break;
+      default:
+        setSelectedStyle('regular');
+    }
+    setShowTshirtOutline(true);
+    setCurrentPage('color');
+    setSelectedSubcategory('Color');
   };
 
   const renderProductGrid = () => {
@@ -261,150 +283,193 @@ const Shop = () => {
       const currentMeasurements = selectedSize ? sizeMeasurements[selectedSize] : sizeMeasurements['M'];
       
       return (
-        <div className="size-measurement-container">
-          <div className="dress-type-selection">
-            <h3>Select T-Shirt Style</h3>
-            <div className="dress-types-grid">
-              <div 
-                className={`dress-type-card ${selectedDressType === 'regular' ? 'selected' : ''}`}
-                onClick={() => setSelectedDressType('regular')}
-              >
-                <div className="dress-outline regular"></div>
-                <h4>Regular Fit</h4>
-                <p>Classic comfortable fit</p>
+        <div className="size-calculator-section">
+          <div className="size-calculator-container">
+            <div className="size-calculator-header">
+              <h2>Customize Your T-Shirt</h2>
+              <p>Select your preferred style and size</p>
+            </div>
+            
+            <div className="size-calculator-content">
+              <div className="style-selection-section">
+                <h3>Step 1: Choose Your Style</h3>
+                <div className="dress-types-grid">
+                  <div 
+                    className={`dress-type-card ${selectedDressType === 'regular' ? 'selected' : ''}`}
+                    onClick={() => setSelectedDressType('regular')}
+                  >
+                    <div className="dress-outline regular"></div>
+                    <h4>Regular Fit</h4>
+                    <p>Classic comfortable fit</p>
+                  </div>
+                  <div 
+                    className={`dress-type-card ${selectedDressType === 'slim' ? 'selected' : ''}`}
+                    onClick={() => setSelectedDressType('slim')}
+                  >
+                    <div className="dress-outline slim"></div>
+                    <h4>Slim Fit</h4>
+                    <p>Modern fitted style</p>
+                  </div>
+                  <div 
+                    className={`dress-type-card ${selectedDressType === 'oversized' ? 'selected' : ''}`}
+                    onClick={() => setSelectedDressType('oversized')}
+                  >
+                    <div className="dress-outline oversized"></div>
+                    <h4>Oversized</h4>
+                    <p>Relaxed and roomy</p>
+                  </div>
+                  <div 
+                    className={`dress-type-card ${selectedDressType === 'muscle' ? 'selected' : ''}`}
+                    onClick={() => setSelectedDressType('muscle')}
+                  >
+                    <div className="dress-outline muscle"></div>
+                    <h4>Muscle Fit</h4>
+                    <p>Athletic cut with wider shoulders</p>
+                  </div>
+                </div>
               </div>
-              <div 
-                className={`dress-type-card ${selectedDressType === 'slim' ? 'selected' : ''}`}
-                onClick={() => setSelectedDressType('slim')}
-              >
-                <div className="dress-outline slim"></div>
-                <h4>Slim Fit</h4>
-                <p>Modern fitted style</p>
-              </div>
-              <div 
-                className={`dress-type-card ${selectedDressType === 'oversized' ? 'selected' : ''}`}
-                onClick={() => setSelectedDressType('oversized')}
-              >
-                <div className="dress-outline oversized"></div>
-                <h4>Oversized</h4>
-                <p>Relaxed and roomy</p>
-              </div>
-              <div 
-                className={`dress-type-card ${selectedDressType === 'muscle' ? 'selected' : ''}`}
-                onClick={() => setSelectedDressType('muscle')}
-              >
-                <div className="dress-outline muscle"></div>
-                <h4>Muscle Fit</h4>
-                <p>Athletic cut with wider shoulders</p>
+
+              <div className="size-selection-section">
+                <h3>Step 2: Select Your Size</h3>
+                <div className="calculator-container">
+                  <div className="unit-selector">
+                    <button 
+                      className={selectedUnit === 'cm' ? 'active' : ''} 
+                      onClick={() => setSelectedUnit('cm')}
+                    >
+                      Centimeters
+                    </button>
+                    <button 
+                      className={selectedUnit === 'inches' ? 'active' : ''} 
+                      onClick={() => setSelectedUnit('inches')}
+                    >
+                      Inches
+                    </button>
+                  </div>
+                  
+                  <div className="measurements-grid">
+                    <div className="measurement-item">
+                      <span>Shoulder:</span>
+                      <div className="measurement-values">
+                        <span>
+                          {selectedUnit === 'cm' 
+                            ? `${currentMeasurements.shoulder} cm`
+                            : `${(currentMeasurements.shoulder / 2.54).toFixed(1)}"`
+                          }
+                        </span>
+                      </div>
+                    </div>
+                    <div className="measurement-item">
+                      <span>Chest:</span>
+                      <div className="measurement-values">
+                        <span>
+                          {selectedUnit === 'cm' 
+                            ? `${currentMeasurements.chest} cm`
+                            : `${(currentMeasurements.chest / 2.54).toFixed(1)}"`
+                          }
+                        </span>
+                      </div>
+                    </div>
+                    <div className="measurement-item">
+                      <span>Waist:</span>
+                      <div className="measurement-values">
+                        <span>
+                          {selectedUnit === 'cm' 
+                            ? `${currentMeasurements.waist} cm`
+                            : `${(currentMeasurements.waist / 2.54).toFixed(1)}"`
+                          }
+                        </span>
+                      </div>
+                    </div>
+                    <div className="measurement-item">
+                      <span>Length:</span>
+                      <div className="measurement-values">
+                        <span>
+                          {selectedUnit === 'cm' 
+                            ? `${currentMeasurements.length} cm`
+                            : `${(currentMeasurements.length / 2.54).toFixed(1)}"`
+                          }
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="size-options">
+                    <button 
+                      className={`size-option ${selectedSize === 'S' ? 'active' : ''}`}
+                      onClick={() => setSelectedSize('S')}
+                    >
+                      S
+                    </button>
+                    <button 
+                      className={`size-option ${selectedSize === 'M' ? 'active' : ''}`}
+                      onClick={() => setSelectedSize('M')}
+                    >
+                      M
+                    </button>
+                    <button 
+                      className={`size-option ${selectedSize === 'L' ? 'active' : ''}`}
+                      onClick={() => setSelectedSize('L')}
+                    >
+                      L
+                    </button>
+                    <button 
+                      className={`size-option ${selectedSize === 'XL' ? 'active' : ''}`}
+                      onClick={() => setSelectedSize('XL')}
+                    >
+                      XL
+                    </button>
+                    <button 
+                      className={`size-option ${selectedSize === 'XXL' ? 'active' : ''}`}
+                      onClick={() => setSelectedSize('XXL')}
+                    >
+                      XXL
+                    </button>
+                    <button 
+                      className={`size-option ${selectedSize === 'XXXL' ? 'active' : ''}`}
+                      onClick={() => setSelectedSize('XXXL')}
+                    >
+                      XXXL
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <div className="calculator-container">
-              <div className="inches-calculator">
-                <h3>Size Calculator</h3>
-                <div className="unit-selector">
-                  <button 
-                    className={selectedUnit === 'cm' ? 'active' : ''} 
-                    onClick={() => setSelectedUnit('cm')}
-                  >
-                    Centimeters
-                  </button>
-                  <button 
-                    className={selectedUnit === 'inches' ? 'active' : ''} 
-                    onClick={() => setSelectedUnit('inches')}
-                  >
-                    Inches
-                  </button>
-                </div>
-                <div className="measurements-grid">
-                  <div className="measurement-item">
-                    <span>Shoulder:</span>
-                    <div className="measurement-values">
-                      <span>
-                        {selectedUnit === 'cm' 
-                          ? `${currentMeasurements.shoulder} cm`
-                          : `${(currentMeasurements.shoulder / 2.54).toFixed(1)}"`
-                        }
-                      </span>
-                    </div>
-                  </div>
-                  <div className="measurement-item">
-                    <span>Chest:</span>
-                    <div className="measurement-values">
-                      <span>
-                        {selectedUnit === 'cm' 
-                          ? `${currentMeasurements.chest} cm`
-                          : `${(currentMeasurements.chest / 2.54).toFixed(1)}"`
-                        }
-                      </span>
-                    </div>
-                  </div>
-                  <div className="measurement-item">
-                    <span>Length:</span>
-                    <div className="measurement-values">
-                      <span>
-                        {selectedUnit === 'cm' 
-                          ? `${currentMeasurements.length} cm`
-                          : `${(currentMeasurements.length / 2.54).toFixed(1)}"`
-                        }
-                      </span>
-                    </div>
-                  </div>
-                  <div className="measurement-item">
-                    <span>Sleeve:</span>
-                    <div className="measurement-values">
-                      <span>
-                        {selectedUnit === 'cm' 
-                          ? `${currentMeasurements.waist} cm`
-                          : `${(currentMeasurements.waist / 2.54).toFixed(1)}"`
-                        }
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div className="size-options">
-                  <button 
-                    className={`size-option ${selectedSize === 'S' ? 'active' : ''}`}
-                    onClick={() => setSelectedSize('S')}
-                  >
-                    S
-                  </button>
-                  <button 
-                    className={`size-option ${selectedSize === 'M' ? 'active' : ''}`}
-                    onClick={() => setSelectedSize('M')}
-                  >
-                    M
-                  </button>
-                  <button 
-                    className={`size-option ${selectedSize === 'L' ? 'active' : ''}`}
-                    onClick={() => setSelectedSize('L')}
-                  >
-                    L
-                  </button>
-                  <button 
-                    className={`size-option ${selectedSize === 'XL' ? 'active' : ''}`}
-                    onClick={() => setSelectedSize('XL')}
-                  >
-                    XL
-                  </button>
-                  <button 
-                    className={`size-option ${selectedSize === 'XXL' ? 'active' : ''}`}
-                    onClick={() => setSelectedSize('XXL')}
-                  >
-                    XXL
-                  </button>
-                  <button 
-                    className={`size-option ${selectedSize === 'XXXL' ? 'active' : ''}`}
-                    onClick={() => setSelectedSize('XXXL')}
-                  >
-                    XXXL
-                  </button>
-                </div>
-                <button className="submit-button" onClick={() => handleSubmit()}>
-                  Submit
-                </button>
-              </div>
+            <div className="size-calculator-footer">
+              <button className="submit-button" onClick={handleSubmit}>
+                Continue to Color Selection
+              </button>
             </div>
+          </div>
+        </div>
+      );
+    }
+    if (selectedSubcategory === 'Color' && currentPage === 'color') {
+      return (
+        <div className="color-section">
+          <h2>Select Color</h2>
+          {showTshirtOutline && (
+            <div className="tshirt-preview">
+              <div className={`outline-dress ${selectedStyle}`}></div>
+            </div>
+          )}
+          <div className="color-options">
+            <div className="color-box" style={{ backgroundColor: '#000000' }}></div>
+            <div className="color-box" style={{ backgroundColor: '#FFFFFF', border: '1px solid #ddd' }}></div>
+            <div className="color-box" style={{ backgroundColor: '#FF0000' }}></div>
+            <div className="color-box" style={{ backgroundColor: '#0000FF' }}></div>
+            <div className="color-box" style={{ backgroundColor: '#008000' }}></div>
+            <div className="color-box" style={{ backgroundColor: '#FFA500' }}></div>
+            <div className="color-box" style={{ backgroundColor: '#800080' }}></div>
+            <div className="color-box" style={{ backgroundColor: '#FFC0CB' }}></div>
+            <div className="color-box" style={{ backgroundColor: '#A52A2A' }}></div>
+            <div className="color-box" style={{ backgroundColor: '#808080' }}></div>
+            <div className="color-box" style={{ backgroundColor: '#FFD700' }}></div>
+            <div className="color-box" style={{ backgroundColor: '#00FFFF' }}></div>
+            <div className="color-box" style={{ backgroundColor: '#FF00FF' }}></div>
+            <div className="color-box" style={{ backgroundColor: '#4B0082' }}></div>
+            <div className="color-box" style={{ backgroundColor: '#FF4500' }}></div>
           </div>
         </div>
       );
@@ -782,34 +847,6 @@ const Shop = () => {
         {renderComingSoon()}
         {renderCategories()}
         {renderBrands()}
-        {selectedSubcategory === 'Color' && (
-          <div className="color-section">
-            <h3>Select Color</h3>
-            <div className="tshirt-outline">
-              <div className="tshirt-body"></div>
-              <div className="tshirt-sleeve left"></div>
-              <div className="tshirt-sleeve right"></div>
-              <div className="tshirt-collar"></div>
-            </div>
-            <div className="color-options">
-              <div className="color-box" style={{ backgroundColor: '#000000' }}></div>
-              <div className="color-box" style={{ backgroundColor: '#FFFFFF', border: '1px solid #ddd' }}></div>
-              <div className="color-box" style={{ backgroundColor: '#FF0000' }}></div>
-              <div className="color-box" style={{ backgroundColor: '#0000FF' }}></div>
-              <div className="color-box" style={{ backgroundColor: '#008000' }}></div>
-              <div className="color-box" style={{ backgroundColor: '#FFA500' }}></div>
-              <div className="color-box" style={{ backgroundColor: '#800080' }}></div>
-              <div className="color-box" style={{ backgroundColor: '#FFC0CB' }}></div>
-              <div className="color-box" style={{ backgroundColor: '#A52A2A' }}></div>
-              <div className="color-box" style={{ backgroundColor: '#808080' }}></div>
-              <div className="color-box" style={{ backgroundColor: '#FFD700' }}></div>
-              <div className="color-box" style={{ backgroundColor: '#00FFFF' }}></div>
-              <div className="color-box" style={{ backgroundColor: '#FF00FF' }}></div>
-              <div className="color-box" style={{ backgroundColor: '#4B0082' }}></div>
-              <div className="color-box" style={{ backgroundColor: '#FF4500' }}></div>
-            </div>
-          </div>
-        )}
         {renderProductGrid()}
       </div>
     </div>

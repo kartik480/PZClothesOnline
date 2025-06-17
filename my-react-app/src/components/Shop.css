@@ -1279,6 +1279,47 @@ button:focus {
   transform: scaleX(-1);
 }
 
+/* Hoodie style variations */
+.outline-dress.hoodie-regular {
+  width: 200px;
+  height: 300px;
+}
+
+.outline-dress.hoodie-regular::before,
+.outline-dress.hoodie-regular::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 45px;
+  height: 60px;
+  border: 2px solid #333;
+  border-radius: 22px 0 0 22px;
+}
+
+.outline-dress.hoodie-regular::before {
+  left: -45px;
+  border-right: none;
+}
+
+.outline-dress.hoodie-regular::after {
+  right: -45px;
+  border-left: none;
+  transform: scaleX(-1);
+}
+
+.outline-dress.hoodie-regular .hood {
+  content: '';
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 40px;
+  border: 2px solid #333;
+  border-bottom: none;
+  border-radius: 40px 40px 0 0;
+}
+
 .outline-dress.slim {
   width: 180px;
   height: 280px;
@@ -1304,6 +1345,19 @@ button:focus {
   right: -35px;
   border-left: none;
   transform: scaleX(-1);
+}
+
+.outline-dress.slim .hood {
+  content: '';
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 30px;
+  border: 2px solid #333;
+  border-bottom: none;
+  border-radius: 30px 30px 0 0;
 }
 
 .outline-dress.oversized {
@@ -1358,6 +1412,19 @@ button:focus {
   right: -70px;
   border-left: none;
   transform: scaleX(-1);
+}
+
+.outline-dress.muscle .hood {
+  content: '';
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90px;
+  height: 45px;
+  border: 2px solid #333;
+  border-bottom: none;
+  border-radius: 45px 45px 0 0;
 }
 
 /* Size variations */
@@ -1600,7 +1667,7 @@ button:focus {
   background: white;
 }
 
-/* T-shirt Type Outlines */
+/* T-shirt Type Outlines (Small) */
 .dress-outline.regular {
   border: 2px solid #333;
   border-radius: 15px 15px 0 0;
@@ -1715,6 +1782,173 @@ button:focus {
   transform: scaleX(-1);
 }
 
+/* Hoodie Type Outlines (Small) */
+.dress-outline.hoodie-regular {
+  border: 2px solid #333;
+  border-radius: 15px 15px 0 0;
+  position: relative;
+}
+
+.dress-outline.hoodie-regular::before,
+.dress-outline.hoodie-regular::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 22px;
+  height: 30px;
+  border: 2px solid #333;
+  border-radius: 11px 0 0 11px;
+}
+
+.dress-outline.hoodie-regular::before {
+  left: -22px;
+  border-right: none;
+}
+
+.dress-outline.hoodie-regular::after {
+  right: -22px;
+  border-left: none;
+  transform: scaleX(-1);
+}
+
+.dress-outline.hoodie-regular .hood {
+  content: '';
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 20px;
+  border: 2px solid #333;
+  border-bottom: none;
+  border-radius: 20px 20px 0 0;
+}
+
+.dress-outline.hoodie-slim {
+  border: 2px solid #333;
+  border-radius: 15px 15px 0 0;
+  width: 70px;
+  position: relative;
+}
+
+.dress-outline.hoodie-slim::before,
+.dress-outline.hoodie-slim::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 18px;
+  height: 25px;
+  border: 2px solid #333;
+  border-radius: 9px 0 0 9px;
+}
+
+.dress-outline.hoodie-slim::before {
+  left: -18px;
+  border-right: none;
+}
+
+.dress-outline.hoodie-slim::after {
+  right: -18px;
+  border-left: none;
+  transform: scaleX(-1);
+}
+
+.dress-outline.hoodie-slim .hood {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 15px;
+  border: 2px solid #333;
+  border-bottom: none;
+  border-radius: 15px 15px 0 0;
+}
+
+.dress-outline.hoodie-oversized {
+  border: 2px solid #333;
+  border-radius: 15px 15px 0 0;
+  width: 110px;
+  position: relative;
+}
+
+.dress-outline.hoodie-oversized::before,
+.dress-outline.hoodie-oversized::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 30px;
+  height: 35px;
+  border: 2px solid #333;
+  border-radius: 15px 0 0 15px;
+}
+
+.dress-outline.hoodie-oversized::before {
+  left: -30px;
+  border-right: none;
+}
+
+.dress-outline.hoodie-oversized::after {
+  right: -30px;
+  border-left: none;
+  transform: scaleX(-1);
+}
+
+.dress-outline.hoodie-oversized .hood {
+  content: '';
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 25px;
+  border: 2px solid #333;
+  border-bottom: none;
+  border-radius: 25px 25px 0 0;
+}
+
+.dress-outline.hoodie-muscle {
+  border: 2px solid #333;
+  border-radius: 15px 15px 0 0;
+  position: relative;
+}
+
+.dress-outline.hoodie-muscle::before,
+.dress-outline.hoodie-muscle::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 35px;
+  height: 40px;
+  border: 2px solid #333;
+  border-radius: 17px 0 0 17px;
+}
+
+.dress-outline.hoodie-muscle::before {
+  left: -35px;
+  border-right: none;
+}
+
+.dress-outline.hoodie-muscle::after {
+  right: -35px;
+  border-left: none;
+  transform: scaleX(-1);
+}
+
+.dress-outline.hoodie-muscle .hood {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 45px;
+  height: 22px;
+  border: 2px solid #333;
+  border-bottom: none;
+  border-radius: 22px 22px 0 0;
+}
+
 /* Add hover effects */
 .dress-type-card:hover .dress-outline {
   transform: scale(1.1);
@@ -1751,229 +1985,6 @@ button:focus {
   gap: 0.5rem;
   margin-bottom: 1rem;
   justify-content: center;
-}
-
-.unit-selector button {
-  padding: 0.5rem 1rem;
-  border: 1px solid #ddd;
-  background: white;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 0.9rem;
-  color: #000;
-  transition: all 0.3s ease;
-}
-
-.unit-selector button.active {
-  background: #007bff;
-  color: white;
-  border-color: #007bff;
-}
-
-.unit-selector button:hover:not(.active) {
-  background: #f8f8f8;
-  color: #000;
-}
-
-.size-options {
-  display: flex;
-  gap: 0.5rem;
-  justify-content: center;
-  margin-top: 1.5rem;
-  flex-wrap: wrap;
-}
-
-.size-option {
-  width: 45px;
-  height: 45px;
-  border: 2px solid #ddd;
-  background: white;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 1rem;
-  font-weight: 500;
-  color: #000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-}
-
-.size-option:hover {
-  border-color: #007bff;
-  background: #f8f8f8;
-}
-
-.size-option.active {
-  background: #007bff;
-  color: white;
-  border-color: #007bff;
-}
-
-.submit-button {
-  background: #007bff;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  padding: 1rem 2rem;
-  font-size: 1.1rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  width: auto;
-  min-width: 200px;
-  max-width: 300px;
-  margin: 2rem auto 0;
-  display: block;
-}
-
-.submit-button:hover {
-  background: #0056b3;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
-}
-
-.submit-button:active {
-  transform: translateY(0);
-  box-shadow: none;
-}
-
-.size-calculator-section {
-  padding: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  min-height: calc(100vh - 100px);
-  display: flex;
-  align-items: center;
-}
-
-.size-calculator-container {
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 2rem;
-  width: 100%;
-}
-
-.size-calculator-header {
-  text-align: center;
-  margin-bottom: 3rem;
-  padding-bottom: 1rem;
-  border-bottom: 2px solid #f0f0f0;
-}
-
-.size-calculator-header h2 {
-  font-size: 2.5rem;
-  color: #333;
-  margin-bottom: 0.5rem;
-  font-weight: 600;
-}
-
-.size-calculator-header p {
-  color: #666;
-  font-size: 1.2rem;
-}
-
-.size-calculator-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  margin-bottom: 3rem;
-  align-items: start;
-}
-
-.style-selection-section,
-.size-selection-section {
-  background: #f8f9fa;
-  border-radius: 12px;
-  padding: 2rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-.style-selection-section h3,
-.size-selection-section h3 {
-  color: #333;
-  margin-bottom: 2rem;
-  font-size: 1.5rem;
-  font-weight: 600;
-  text-align: center;
-  position: relative;
-  padding-bottom: 0.5rem;
-}
-
-.style-selection-section h3::after,
-.size-selection-section h3::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 50px;
-  height: 3px;
-  background: #007bff;
-  border-radius: 2px;
-}
-
-.dress-types-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-}
-
-.dress-type-card {
-  background: white;
-  border-radius: 12px;
-  padding: 1.5rem;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border: 2px solid transparent;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-.dress-type-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-}
-
-.dress-type-card.selected {
-  border-color: #007bff;
-  background: #f0f7ff;
-  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.15);
-}
-
-.dress-outline {
-  height: 150px;
-  margin-bottom: 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.dress-type-card h4 {
-  color: #333;
-  margin-bottom: 0.5rem;
-  font-size: 1.2rem;
-  font-weight: 600;
-}
-
-.dress-type-card p {
-  color: #666;
-  font-size: 0.95rem;
-  line-height: 1.4;
-}
-
-.calculator-container {
-  background: white;
-  border-radius: 12px;
-  padding: 2rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-.unit-selector {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 2rem;
 }
 
 .unit-selector button {
@@ -2229,42 +2240,82 @@ button:focus {
   font-size: 1rem;
 }
 
-.size-options {
+.filter-bar {
+  background: #fff;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin: 0;
+  width: 100%;
   display: flex;
-  gap: 0.8rem;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding: 1rem;
-  background: #f8f9fa;
-  border-radius: 8px;
-  margin-top: 1rem;
-}
-
-.size-option {
-  width: 45px;
-  height: 45px;
-  border: 2px solid #ddd;
-  background: white;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 1rem;
-  font-weight: 500;
-  color: #000;
-  display: flex;
+  gap: 2rem;
   align-items: center;
   justify-content: center;
+  position: fixed;
+  top: 60px;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  transition: transform 0.3s ease-in-out;
+}
+
+.filter-bar.hide {
+  transform: translateY(-100%);
+}
+
+.filter-bar.show {
+  transform: translateY(0);
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #f8f9fa;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+}
+
+.filter-group label {
+  font-size: 1rem;
+  color: #333;
+  font-weight: 500;
+  min-width: 100px;
+}
+
+.filter-options {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.filter-btn {
+  padding: 0.5rem 1.2rem;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  background: #fff;
+  color: #666;
+  font-size: 0.95rem;
+  cursor: pointer;
   transition: all 0.3s ease;
+  min-width: 100px;
+  text-align: center;
 }
 
-.size-option:hover {
+.filter-btn:hover {
+  background: #f8f9fa;
   border-color: #007bff;
-  background: #f8f8f8;
+  color: #007bff;
 }
 
-.size-option.active {
+.filter-btn.active {
   background: #007bff;
-  color: white;
+  color: #fff;
   border-color: #007bff;
+}
+
+.filter-btn.active:hover {
+  background: #0056b3;
+  border-color: #0056b3;
+  color: #fff;
 }
 
 .style-selection-message {
@@ -2389,80 +2440,259 @@ button:focus {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.filter-bar {
-  background: #fff;
-  padding: 1rem 2rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  margin: 0;
+.size-calculator-section {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: calc(100vh - 100px);
+  display: flex;
+  align-items: center;
+}
+
+.size-calculator-container {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
   width: 100%;
-  display: flex;
-  gap: 2rem;
-  align-items: center;
-  justify-content: center;
-  position: fixed;
-  top: 60px;
-  left: 0;
-  right: 0;
-  z-index: 100;
-  transition: transform 0.3s ease-in-out;
 }
 
-.filter-bar.hide {
-  transform: translateY(-100%);
+.size-calculator-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #f0f0f0;
 }
 
-.filter-bar.show {
-  transform: translateY(0);
-}
-
-.filter-group {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  background: #f8f9fa;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-}
-
-.filter-group label {
-  font-size: 1rem;
+.size-calculator-header h2 {
+  font-size: 2.5rem;
   color: #333;
-  font-weight: 500;
-  min-width: 100px;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
 }
 
-.filter-options {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.filter-btn {
-  padding: 0.5rem 1.2rem;
-  border: 1px solid #dee2e6;
-  border-radius: 6px;
-  background: #fff;
+.size-calculator-header p {
   color: #666;
-  font-size: 0.95rem;
+  font-size: 1.2rem;
+}
+
+.size-calculator-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+  align-items: start;
+}
+
+.style-selection-section,
+.size-selection-section {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.style-selection-section h3,
+.size-selection-section h3 {
+  color: #333;
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.style-selection-section h3::after,
+.size-selection-section h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 3px;
+  background: #007bff;
+  border-radius: 2px;
+}
+
+.dress-types-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.dress-type-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
   cursor: pointer;
   transition: all 0.3s ease;
-  min-width: 100px;
-  text-align: center;
+  border: 2px solid transparent;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-.filter-btn:hover {
-  background: #f8f9fa;
+.dress-type-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.dress-type-card.selected {
   border-color: #007bff;
-  color: #007bff;
+  background: #f0f7ff;
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.15);
 }
 
-.filter-btn.active {
+.dress-outline {
+  height: 150px;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dress-type-card h4 {
+  color: #333;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.dress-type-card p {
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.unit-selector button.active {
   background: #007bff;
-  color: #fff;
+  color: white;
   border-color: #007bff;
 }
 
-.filter-btn.active:hover {
-  background: #0056b3;
-  border-color: #0056b3;
-  color: #fff;
+.unit-selector button:hover:not(.active) {
+  background: #f8f8f8;
+  color: #000;
+}
+
+/* Missing hoodie styles for larger outline-dress class */
+.outline-dress.hoodie-slim {
+  width: 180px;
+  height: 280px;
+}
+
+.outline-dress.hoodie-slim::before,
+.outline-dress.hoodie-slim::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 35px;
+  height: 50px;
+  border: 2px solid #333;
+  border-radius: 17px 0 0 17px;
+}
+
+.outline-dress.hoodie-slim::before {
+  left: -35px;
+  border-right: none;
+}
+
+.outline-dress.hoodie-slim::after {
+  right: -35px;
+  border-left: none;
+  transform: scaleX(-1);
+}
+
+.outline-dress.hoodie-slim .hood {
+  content: '';
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 30px;
+  border: 2px solid #333;
+  border-bottom: none;
+  border-radius: 30px 30px 0 0;
+}
+
+.outline-dress.hoodie-oversized {
+  width: 240px;
+  height: 320px;
+}
+
+.outline-dress.hoodie-oversized::before,
+.outline-dress.hoodie-oversized::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 60px;
+  height: 70px;
+  border: 2px solid #333;
+  border-radius: 30px 0 0 30px;
+}
+
+.outline-dress.hoodie-oversized::before {
+  left: -60px;
+  border-right: none;
+}
+
+.outline-dress.hoodie-oversized::after {
+  right: -60px;
+  border-left: none;
+  transform: scaleX(-1);
+}
+
+.outline-dress.hoodie-oversized .hood {
+  content: '';
+  position: absolute;
+  top: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 50px;
+  border: 2px solid #333;
+  border-bottom: none;
+  border-radius: 50px 50px 0 0;
+}
+
+.outline-dress.hoodie-muscle {
+  width: 220px;
+  height: 300px;
+}
+
+.outline-dress.hoodie-muscle::before,
+.outline-dress.hoodie-muscle::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 70px;
+  height: 80px;
+  border: 2px solid #333;
+  border-radius: 35px 0 0 35px;
+}
+
+.outline-dress.hoodie-muscle::before {
+  left: -70px;
+  border-right: none;
+}
+
+.outline-dress.hoodie-muscle::after {
+  right: -70px;
+  border-left: none;
+  transform: scaleX(-1);
+}
+
+.outline-dress.hoodie-muscle .hood {
+  content: '';
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90px;
+  height: 45px;
+  border: 2px solid #333;
+  border-bottom: none;
+  border-radius: 45px 45px 0 0;
 } 

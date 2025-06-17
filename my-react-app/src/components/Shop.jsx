@@ -34,6 +34,7 @@ const Shop = () => {
   const autoPlayInterval = useRef(null);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [filterBarVisible, setFilterBarVisible] = useState(true);
+  const [selectedFilterDressType, setSelectedFilterDressType] = useState('T-Shirt');
 
   // Size measurements in inches
   const sizeMeasurements = {
@@ -202,6 +203,10 @@ const Shop = () => {
     setSelectedColor(color);
   };
 
+  const handleFilterDressTypeChange = (dressType) => {
+    setSelectedFilterDressType(dressType);
+  };
+
   const renderProductGrid = () => {
     if (selectedSubcategory === 'Animes') {
       return (
@@ -326,7 +331,7 @@ const Shop = () => {
         <div className="size-calculator-section">
           <div className="size-calculator-container">
             <div className="size-calculator-header">
-              <h2>Customize Your T-Shirt</h2>
+              <h2>Customize Your {selectedFilterDressType}</h2>
               <p>Select your preferred style and size</p>
             </div>
             
@@ -338,7 +343,9 @@ const Shop = () => {
                     className={`dress-type-card ${selectedDressType === 'regular' ? 'selected' : ''}`}
                     onClick={() => setSelectedDressType('regular')}
                   >
-                    <div className="dress-outline regular"></div>
+                    <div className={`dress-outline ${selectedFilterDressType === 'Hoodie' ? 'hoodie-regular' : 'regular'}`}>
+                      {selectedFilterDressType === 'Hoodie' && <div className="hood"></div>}
+                    </div>
                     <h4>Regular Fit</h4>
                     <p>Classic comfortable fit</p>
                   </div>
@@ -346,7 +353,9 @@ const Shop = () => {
                     className={`dress-type-card ${selectedDressType === 'slim' ? 'selected' : ''}`}
                     onClick={() => setSelectedDressType('slim')}
                   >
-                    <div className="dress-outline slim"></div>
+                    <div className={`dress-outline ${selectedFilterDressType === 'Hoodie' ? 'hoodie-slim' : 'slim'}`}>
+                      {selectedFilterDressType === 'Hoodie' && <div className="hood"></div>}
+                    </div>
                     <h4>Slim Fit</h4>
                     <p>Modern fitted style</p>
                   </div>
@@ -354,7 +363,9 @@ const Shop = () => {
                     className={`dress-type-card ${selectedDressType === 'oversized' ? 'selected' : ''}`}
                     onClick={() => setSelectedDressType('oversized')}
                   >
-                    <div className="dress-outline oversized"></div>
+                    <div className={`dress-outline ${selectedFilterDressType === 'Hoodie' ? 'hoodie-oversized' : 'oversized'}`}>
+                      {selectedFilterDressType === 'Hoodie' && <div className="hood"></div>}
+                    </div>
                     <h4>Oversized</h4>
                     <p>Relaxed and roomy</p>
                   </div>
@@ -362,7 +373,9 @@ const Shop = () => {
                     className={`dress-type-card ${selectedDressType === 'muscle' ? 'selected' : ''}`}
                     onClick={() => setSelectedDressType('muscle')}
                   >
-                    <div className="dress-outline muscle"></div>
+                    <div className={`dress-outline ${selectedFilterDressType === 'Hoodie' ? 'hoodie-muscle' : 'muscle'}`}>
+                      {selectedFilterDressType === 'Hoodie' && <div className="hood"></div>}
+                    </div>
                     <h4>Muscle Fit</h4>
                     <p>Athletic cut with wider shoulders</p>
                   </div>
@@ -522,12 +535,14 @@ const Shop = () => {
             <>
               <div className="tshirt-preview">
                 <div 
-                  className={`outline-dress ${selectedStyle}`}
+                  className={`outline-dress ${selectedFilterDressType === 'Hoodie' ? `hoodie-${selectedStyle}` : selectedStyle}`}
                   style={{ 
                     backgroundColor: selectedColor,
                     borderColor: selectedColor === '#FFFFFF' ? '#333' : selectedColor
                   }}
-                ></div>
+                >
+                  {selectedFilterDressType === 'Hoodie' && <div className="hood"></div>}
+                </div>
               </div>
               <div className="color-options">
                 <div 
@@ -880,8 +895,18 @@ const Shop = () => {
           <div className="filter-group">
             <label>Dress Type:</label>
             <div className="filter-options">
-              <button className="filter-btn active">T-Shirt</button>
-              <button className="filter-btn">Hoodie</button>
+              <button 
+                className={`filter-btn ${selectedFilterDressType === 'T-Shirt' ? 'active' : ''}`}
+                onClick={() => handleFilterDressTypeChange('T-Shirt')}
+              >
+                T-Shirt
+              </button>
+              <button 
+                className={`filter-btn ${selectedFilterDressType === 'Hoodie' ? 'active' : ''}`}
+                onClick={() => handleFilterDressTypeChange('Hoodie')}
+              >
+                Hoodie
+              </button>
             </div>
           </div>
         </div>
@@ -891,7 +916,7 @@ const Shop = () => {
         <div className="size-calculator-section">
           <div className="size-calculator-container">
             <div className="size-calculator-header">
-              <h2>Customize Your T-Shirt</h2>
+              <h2>Customize Your {selectedFilterDressType}</h2>
               <p>Select your preferred style and size</p>
             </div>
             
@@ -903,7 +928,9 @@ const Shop = () => {
                     className={`dress-type-card ${selectedDressType === 'regular' ? 'selected' : ''}`}
                     onClick={() => setSelectedDressType('regular')}
                   >
-                    <div className="dress-outline regular"></div>
+                    <div className={`dress-outline ${selectedFilterDressType === 'Hoodie' ? 'hoodie-regular' : 'regular'}`}>
+                      {selectedFilterDressType === 'Hoodie' && <div className="hood"></div>}
+                    </div>
                     <h4>Regular Fit</h4>
                     <p>Classic comfortable fit</p>
                   </div>
@@ -911,7 +938,9 @@ const Shop = () => {
                     className={`dress-type-card ${selectedDressType === 'slim' ? 'selected' : ''}`}
                     onClick={() => setSelectedDressType('slim')}
                   >
-                    <div className="dress-outline slim"></div>
+                    <div className={`dress-outline ${selectedFilterDressType === 'Hoodie' ? 'hoodie-slim' : 'slim'}`}>
+                      {selectedFilterDressType === 'Hoodie' && <div className="hood"></div>}
+                    </div>
                     <h4>Slim Fit</h4>
                     <p>Modern fitted style</p>
                   </div>
@@ -919,7 +948,9 @@ const Shop = () => {
                     className={`dress-type-card ${selectedDressType === 'oversized' ? 'selected' : ''}`}
                     onClick={() => setSelectedDressType('oversized')}
                   >
-                    <div className="dress-outline oversized"></div>
+                    <div className={`dress-outline ${selectedFilterDressType === 'Hoodie' ? 'hoodie-oversized' : 'oversized'}`}>
+                      {selectedFilterDressType === 'Hoodie' && <div className="hood"></div>}
+                    </div>
                     <h4>Oversized</h4>
                     <p>Relaxed and roomy</p>
                   </div>
@@ -927,7 +958,9 @@ const Shop = () => {
                     className={`dress-type-card ${selectedDressType === 'muscle' ? 'selected' : ''}`}
                     onClick={() => setSelectedDressType('muscle')}
                   >
-                    <div className="dress-outline muscle"></div>
+                    <div className={`dress-outline ${selectedFilterDressType === 'Hoodie' ? 'hoodie-muscle' : 'muscle'}`}>
+                      {selectedFilterDressType === 'Hoodie' && <div className="hood"></div>}
+                    </div>
                     <h4>Muscle Fit</h4>
                     <p>Athletic cut with wider shoulders</p>
                   </div>

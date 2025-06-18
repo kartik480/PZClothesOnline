@@ -13,6 +13,10 @@ import cs1 from '../assets/cs1.png';
 import cs2 from '../assets/cs2.jpg';
 import cs3 from '../assets/cs3.jpg';
 import cs4 from '../assets/cs4.jpg';
+import dr1 from '../assets/dr1.png';
+import dr2 from '../assets/dr2.png';
+import dr3 from '../assets/dr3.png';
+import dr4 from '../assets/dr4.png';
 import download from '../assets/download.png';
 
 const Shop = () => {
@@ -826,7 +830,7 @@ const Shop = () => {
               <div key={index} className="coming-soon-card">
                 <div className="coming-soon-image">
                   <img 
-                    src={index === 0 ? cs1 : index === 1 ? cs2 : index === 2 ? cs3 : cs4}
+                    src={index === 0 ? dr1 : index === 1 ? dr2 : index === 2 ? dr3 : dr4}
                     alt={`Upcoming Design ${index + 1}`}
                     onError={(e) => {
                       e.target.src = 'https://via.placeholder.com/400x500?text=Coming+Soon';

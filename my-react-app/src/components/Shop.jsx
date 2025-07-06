@@ -986,6 +986,51 @@ const Shop = () => {
     return null;
   };
 
+  const renderShirts = () => {
+    if (!selectedSubcategory) {
+      return (
+        <div className="brands-section">
+          <h2 className="brands-title">Shirts</h2>
+          <div className="brands-grid">
+            {[
+              { name: 'Classic Shirts', image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=500&fit=crop', description: 'Timeless elegance and comfort' },
+              { name: 'Casual Shirts', image: 'https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?w=400&h=500&fit=crop', description: 'Relaxed fit for everyday style' },
+              { name: 'Formal Shirts', image: 'https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=400&h=500&fit=crop', description: 'Professional look for any occasion' },
+              { name: 'Designer Shirts', image: 'https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=400&h=500&fit=crop', description: 'Premium quality with unique designs' }
+            ].map((item, index) => (
+              <div key={index} className="brand-card photoframe-card">
+                <div className="brand-image photoframe-image">
+                  <img 
+                    src={item.image}
+                    alt={item.name}
+                    onError={(e) => {
+                      e.target.src = `https://via.placeholder.com/400x500?text=${item.name}`;
+                    }}
+                  />
+                  <div className="photoframe-border"></div>
+                  <div className="brand-overlay">
+                    <h3>{item.name}</h3>
+                    <p>{item.description}</p>
+                    <button 
+                      className="view-collection-btn"
+                      onClick={() => {
+                        setExpandedCategory('brands');
+                        setSelectedSubcategory(item.name);
+                      }}
+                    >
+                      View Collection
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      );
+    }
+    return null;
+  };
+
   const renderPanel = () => {
     return (
       <div className={`panel ${isPanelOpen ? 'open' : ''}`}>
@@ -1387,6 +1432,7 @@ const Shop = () => {
         {renderCategories()}
         {renderBrands()}
         {renderJoggers()}
+        {renderShirts()}
         {renderProductGrid()}
       </div>
     </div>

@@ -1286,7 +1286,7 @@ const Shop = () => {
               className={`subcategory-btn ${selectedSubcategory === 'Men\'s Sleeveless T-Shirt' ? 'active' : ''}`}
               onClick={() => handleSubcategoryClick('Men\'s Sleeveless T-Shirt')}
             >
-              Men's Sleeveless T-Shirt
+              Animes
             </button>
             <button 
               className={`subcategory-btn ${selectedSubcategory === 'Pzn' ? 'active' : ''}`}
@@ -1380,7 +1380,7 @@ const Shop = () => {
               className={`subcategory-btn ${selectedSubcategory === 'Men\'s Sleeveless T-Shirt' ? 'active' : ''}`}
               onClick={() => handleSubcategoryClick('Men\'s Sleeveless T-Shirt')}
             >
-              Men's Sleeveless T-Shirt
+              Animes
             </button>
             <button 
               className={`subcategory-btn ${selectedSubcategory === 'Jujutsu Kaisen' ? 'active' : ''}`}

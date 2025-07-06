@@ -252,7 +252,7 @@ const Shop = () => {
   };
 
   const renderProductGrid = () => {
-    if (selectedSubcategory === 'Animes') {
+    if (selectedSubcategory === 'Men\'s Sleeveless T-Shirt') {
       return (
         <div className="product-grid">
           {[...Array(12)].map((_, index) => (
@@ -900,31 +900,77 @@ const Shop = () => {
     if (!selectedSubcategory) {
       return (
         <div className="brands-section">
-          <h2 className="brands-title">Animes</h2>
+          <h2 className="brands-title">Men's Sleeveless T-Shirt</h2>
           <div className="brands-grid">
             {[
-              { name: 'Naruto', image: download, description: 'Believe It!' },
-              { name: 'Jujutsu Kaisen', image: b2, description: 'I\'m You' },
-              { name: 'One Piece', image: b3, description: 'I\'m Gonna Be King of the Pirates!' },
-              { name: 'Solo Leveling', image: b4, description: 'I Alone Level Up' }
-            ].map((brand, index) => (
-              <div key={index} className="brand-card">
-                <div className="brand-image">
+              { name: 'Classic Sleeveless', image: 'https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=400&h=500&fit=crop', description: 'Timeless comfort and style' },
+              { name: 'Athletic Fit', image: 'https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=400&h=500&fit=crop', description: 'Perfect for workouts and sports' },
+              { name: 'Fashion Forward', image: 'https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?w=400&h=500&fit=crop', description: 'Trendy and modern design' },
+              { name: 'Premium Collection', image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=500&fit=crop', description: 'High-quality materials and craftsmanship' }
+            ].map((item, index) => (
+              <div key={index} className="brand-card photoframe-card">
+                <div className="brand-image photoframe-image">
                   <img 
-                    src={brand.image}
-                    alt={brand.name}
+                    src={item.image}
+                    alt={item.name}
                     onError={(e) => {
-                      e.target.src = `https://via.placeholder.com/400x500?text=${brand.name}`;
+                      e.target.src = `https://via.placeholder.com/400x500?text=${item.name}`;
                     }}
                   />
+                  <div className="photoframe-border"></div>
                   <div className="brand-overlay">
-                    <h3>{brand.name}</h3>
-                    <p>{brand.description}</p>
+                    <h3>{item.name}</h3>
+                    <p>{item.description}</p>
                     <button 
                       className="view-collection-btn"
                       onClick={() => {
                         setExpandedCategory('brands');
-                        setSelectedSubcategory(brand.name);
+                        setSelectedSubcategory(item.name);
+                      }}
+                    >
+                      View Collection
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      );
+    }
+    return null;
+  };
+
+  const renderJoggers = () => {
+    if (!selectedSubcategory) {
+      return (
+        <div className="brands-section">
+          <h2 className="brands-title">Joggers</h2>
+          <div className="brands-grid">
+            {[
+              { name: 'Classic Joggers', image: 'https://images.unsplash.com/photo-1544966503-7cc5ac882d5f?w=400&h=500&fit=crop', description: 'Comfortable and stylish everyday wear' },
+              { name: 'Athletic Joggers', image: 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=400&h=500&fit=crop', description: 'Perfect for workouts and training' },
+              { name: 'Fashion Joggers', image: 'https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=400&h=500&fit=crop', description: 'Trendy design for street style' },
+              { name: 'Premium Joggers', image: 'https://images.unsplash.com/photo-1506629904890-49c2e2c0c0e8?w=400&h=500&fit=crop', description: 'High-quality materials for ultimate comfort' }
+            ].map((item, index) => (
+              <div key={index} className="brand-card photoframe-card">
+                <div className="brand-image photoframe-image">
+                  <img 
+                    src={item.image}
+                    alt={item.name}
+                    onError={(e) => {
+                      e.target.src = `https://via.placeholder.com/400x500?text=${item.name}`;
+                    }}
+                  />
+                  <div className="photoframe-border"></div>
+                  <div className="brand-overlay">
+                    <h3>{item.name}</h3>
+                    <p>{item.description}</p>
+                    <button 
+                      className="view-collection-btn"
+                      onClick={() => {
+                        setExpandedCategory('brands');
+                        setSelectedSubcategory(item.name);
                       }}
                     >
                       View Collection
@@ -944,24 +990,22 @@ const Shop = () => {
     return (
       <div className={`panel ${isPanelOpen ? 'open' : ''}`}>
         <div className="panel-section">
-          <h3>Animes</h3>
+          <h3>Men's Sleeveless T-Shirt</h3>
           <div className="panel-grid">
-            <div className="panel-item">
-              <img src={heading1} alt="Anime 1" />
-              <span>Anime 1</span>
-            </div>
-            <div className="panel-item">
-              <img src={heading2} alt="Anime 2" />
-              <span>Anime 2</span>
-            </div>
-            <div className="panel-item">
-              <img src={heading3} alt="Anime 3" />
-              <span>Anime 3</span>
-            </div>
-            <div className="panel-item">
-              <img src={solo} alt="Solo Leveling" />
-              <span>Solo Leveling</span>
-            </div>
+            {[
+              { name: 'Classic Sleeveless', image: 'https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=300&h=300&fit=crop' },
+              { name: 'Athletic Fit', image: 'https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=300&h=300&fit=crop' },
+              { name: 'Fashion Forward', image: 'https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?w=300&h=300&fit=crop' },
+              { name: 'Premium Collection', image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=300&h=300&fit=crop' }
+            ].map((item, index) => (
+              <div key={index} className="panel-item photoframe-panel">
+                <div className="photoframe-container">
+                  <img src={item.image} alt={item.name} />
+                  <div className="photoframe-border-panel"></div>
+                </div>
+                <span>{item.name}</span>
+              </div>
+            ))}
           </div>
         </div>
         {/* ... rest of the panel sections ... */}
@@ -1194,10 +1238,10 @@ const Shop = () => {
           </button>
           <div className={`subcategory-list ${expandedCategory === 'tshirts' ? 'expanded' : ''}`}>
             <button 
-              className={`subcategory-btn ${selectedSubcategory === 'Animes' ? 'active' : ''}`}
-              onClick={() => handleSubcategoryClick('Animes')}
+              className={`subcategory-btn ${selectedSubcategory === 'Men\'s Sleeveless T-Shirt' ? 'active' : ''}`}
+              onClick={() => handleSubcategoryClick('Men\'s Sleeveless T-Shirt')}
             >
-              Animes
+              Men's Sleeveless T-Shirt
             </button>
             <button 
               className={`subcategory-btn ${selectedSubcategory === 'Pzn' ? 'active' : ''}`}
@@ -1288,10 +1332,10 @@ const Shop = () => {
           </button>
           <div className={`subcategory-list ${expandedCategory === 'brands' ? 'expanded' : ''}`}>
             <button 
-              className={`subcategory-btn ${selectedSubcategory === 'Animes' ? 'active' : ''}`}
-              onClick={() => handleSubcategoryClick('Animes')}
+              className={`subcategory-btn ${selectedSubcategory === 'Men\'s Sleeveless T-Shirt' ? 'active' : ''}`}
+              onClick={() => handleSubcategoryClick('Men\'s Sleeveless T-Shirt')}
             >
-              Animes
+              Men's Sleeveless T-Shirt
             </button>
             <button 
               className={`subcategory-btn ${selectedSubcategory === 'Jujutsu Kaisen' ? 'active' : ''}`}
@@ -1342,6 +1386,7 @@ const Shop = () => {
         {renderComingSoon()}
         {renderCategories()}
         {renderBrands()}
+        {renderJoggers()}
         {renderProductGrid()}
       </div>
     </div>

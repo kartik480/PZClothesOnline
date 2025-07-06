@@ -262,10 +262,11 @@ button:focus {
 .shop-content {
   flex: 1;
   padding: 2rem;
-  background: #f8f9fa;
+  background: #ffffff;
   margin-left: 0;
   transition: margin-left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   padding-top: 6rem;
+  min-height: 100vh;
 }
 
 .shop-sidebar.open + .shop-content {
@@ -1169,10 +1170,14 @@ button:focus {
   text-align: center;
   transform: translateY(100%);
   transition: transform 0.3s ease;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .brand-card:hover .brand-overlay {
   transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .brand-overlay h3 {
@@ -1218,6 +1223,94 @@ button:focus {
 
 .view-collection-btn:hover::before {
   left: 100%;
+}
+
+/* Photoframe Styles */
+.photoframe-card {
+  position: relative;
+  overflow: visible;
+}
+
+.photoframe-image {
+  position: relative;
+  border-radius: 0;
+  overflow: visible;
+}
+
+.photoframe-border {
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  right: -15px;
+  bottom: -15px;
+  border: 8px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  box-shadow: 
+    0 0 0 1px rgba(0, 0, 0, 0.1),
+    0 8px 25px rgba(0, 0, 0, 0.2),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.photoframe-card:hover .photoframe-border {
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 
+    0 0 0 1px rgba(0, 0, 0, 0.1),
+    0 12px 35px rgba(0, 0, 0, 0.3),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+  transform: scale(1.02);
+  transition: all 0.3s ease;
+}
+
+.photoframe-panel {
+  position: relative;
+  overflow: visible;
+}
+
+.photoframe-container {
+  position: relative;
+  border-radius: 0;
+  overflow: visible;
+}
+
+.photoframe-border-panel {
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
+  border: 4px solid rgba(255, 255, 255, 0.4);
+  border-radius: 8px;
+  box-shadow: 
+    0 0 0 1px rgba(0, 0, 0, 0.1),
+    0 4px 15px rgba(0, 0, 0, 0.15),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.photoframe-panel:hover .photoframe-border-panel {
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 
+    0 0 0 1px rgba(0, 0, 0, 0.1),
+    0 6px 20px rgba(0, 0, 0, 0.2),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
+
+/* Ensure full white background */
+html, body {
+  background: #ffffff !important;
+  min-height: 100vh;
+}
+
+/* Hide any black bars or unwanted elements */
+.popular-series-container,
+.popular-series-grid,
+.popular-series-item {
+  display: none !important;
 }
 
 /* Responsive Design for Brands */

@@ -902,7 +902,7 @@ button:focus {
 /* Categories Section */
 .categories-section {
   padding: 4rem 2rem;
-  background: linear-gradient(135deg, #8B0000, #4A0000);
+  background: linear-gradient(135deg, #4A148C, #2E1B47);
   position: relative;
   overflow: hidden;
 }

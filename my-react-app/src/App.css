@@ -82,10 +82,10 @@ body {
 .sub-title {
   font-family: 'Architects Daughter', cursive;
   font-size: 3rem;
-  color: #ffffff;
+  color: #000000;
   margin: 0;
   transform: rotate(-5deg);
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
   position: relative;
   animation: chalkWriting 2s ease-in-out infinite alternate;
 }

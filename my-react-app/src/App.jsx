@@ -22,7 +22,7 @@ function App() {
               <div className="main-content">
                 <div className="center-text-container">
                   <h1 className="main-title">#PzninjaClothes</h1>
-                  <h2 className="sub-title">#goRED</h2>
+                  <h2 className="sub-title">#goEPIC</h2>
                   <FloatingAnimeText />
                 </div>
               </div>

@@ -19,7 +19,7 @@ const Navbar = () => {
         <div className="navbar-left">
           <div className="navbar-logo">
             <img src={logo} alt="Logo" className="logo-img" />
-            <span className="logo-text">#goRED</span>
+            <span className="logo-text">#goEPIC</span>
           </div>
         </div>
         

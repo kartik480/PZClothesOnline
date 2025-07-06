@@ -130,14 +130,15 @@
   flex: 1;
   position: relative;
   padding: 20px;
-  background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-  border: 15px solid #fff;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  border: 15px solid rgba(255, 255, 255, 0.2);
   border-radius: 10px;
   transform: rotate(-2deg);
   transition: transform 0.3s ease;
   max-width: 800px;
   margin: 0;
+  backdrop-filter: blur(10px);
 }
 
 .photo-frame.medium-frame {
@@ -157,12 +158,13 @@
 
 .frame-content {
   aspect-ratio: 3/4;
-  background: #f8f8f8;
+  background: rgba(255, 255, 255, 0.05);
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 5px;
   overflow: hidden;
+  backdrop-filter: blur(5px);
 }
 
 .frame-image {
@@ -198,14 +200,16 @@
 
 .product-item {
   padding: 20px;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .product-item:hover {
@@ -221,7 +225,7 @@
 }
 
 .product-item p {
-  color: #333;
+  color: #000000;
   line-height: 1.6;
   font-size: 1.1rem;
 }
@@ -353,8 +357,8 @@
   height: 100% !important;
   overflow: hidden !important;
   border-radius: 20px !important;
-  border: 8px solid white !important;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+  border: 8px solid rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
   transform-style: preserve-3d !important;
   transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
@@ -378,14 +382,15 @@
   padding: 30px !important;
   position: relative !important;
   right: 0 !important;
-  background: rgba(255, 255, 255, 0.9) !important;
+  background: rgba(255, 255, 255, 0.1) !important;
   backdrop-filter: blur(10px) !important;
   border-radius: 20px !important;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2) !important;
   transform: rotate(1deg) translateZ(5px) !important;
   transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
   transform-style: preserve-3d !important;
   cursor: pointer !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
 }
 
 .products-container > .products-section:last-child .products-content:hover {

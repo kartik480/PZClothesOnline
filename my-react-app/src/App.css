@@ -23,7 +23,7 @@ body {
   width: 100%;
   min-height: 100vh;
   position: relative;
-  background: #863131;
+  background: linear-gradient(135deg, #2c1f3d 0%, #4a2c6d 50%, #6b3fa0 100%);
 }
 
 .main-content {
@@ -82,10 +82,10 @@ body {
 .sub-title {
   font-family: 'Architects Daughter', cursive;
   font-size: 3rem;
-  color: #000;
+  color: #ffffff;
   margin: 0;
   transform: rotate(-5deg);
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   position: relative;
   animation: chalkWriting 2s ease-in-out infinite alternate;
 }

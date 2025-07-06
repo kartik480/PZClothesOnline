@@ -342,7 +342,7 @@ const ThreeDModel = ({
         position: 'relative',
         borderRadius: '20px',
         overflow: 'hidden',
-        backgroundColor: '#f8f9fa'
+        background: 'linear-gradient(135deg, #2c1f3d 0%, #4a2c6d 50%, #6b3fa0 100%)'
       }}
     >
       {isLoading && (
@@ -352,12 +352,14 @@ const ThreeDModel = ({
           left: '50%',
           transform: 'translate(-50%, -50%)',
           zIndex: 10,
-          color: '#333',
+          color: '#ffffff',
           fontSize: '16px',
           fontWeight: '600',
-          backgroundColor: 'rgba(255, 255, 255, 0.9)',
+          backgroundColor: 'rgba(255, 255, 255, 0.1)',
           padding: '1rem',
-          borderRadius: '8px'
+          borderRadius: '8px',
+          backdropFilter: 'blur(10px)',
+          border: '1px solid rgba(255, 255, 255, 0.2)'
         }}>
           Loading 3D Model...
         </div>
@@ -369,12 +371,14 @@ const ThreeDModel = ({
           left: '50%',
           transform: 'translate(-50%, -50%)',
           zIndex: 10,
-          color: '#ff0000',
+          color: '#ff6b6b',
           fontSize: '14px',
           textAlign: 'center',
-          backgroundColor: 'rgba(255, 255, 255, 0.9)',
+          backgroundColor: 'rgba(255, 255, 255, 0.1)',
           padding: '1rem',
-          borderRadius: '8px'
+          borderRadius: '8px',
+          backdropFilter: 'blur(10px)',
+          border: '1px solid rgba(255, 255, 255, 0.2)'
         }}>
           {error}<br />
           <small>Using fallback model</small>

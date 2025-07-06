@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaShoppingCart, FaUser, FaSearch } from 'react-icons/fa';
-import AuthPanel from './AuthPanel';
 import './Navbar.css';
 import logo from '../assets/log.png'; // Adjust the path as necessary
 
 const Navbar = () => {
   const [searchQuery, setSearchQuery] = useState('');
-  const [isAuthPanelOpen, setIsAuthPanelOpen] = useState(false);
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -55,17 +53,12 @@ const Navbar = () => {
           </form>
           <button 
             className="account-link"
-            onClick={() => setIsAuthPanelOpen(true)}
           >
             <FaUser className="account-icon" />
           </button>
         </div>
       </div>
 
-      <AuthPanel 
-        isOpen={isAuthPanelOpen} 
-        onClose={() => setIsAuthPanelOpen(false)} 
-      />
     </nav>
   );
 };

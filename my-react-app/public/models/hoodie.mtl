@@ -1,0 +1,15 @@
+# Enhanced Material file for hoodie
+# Created for PZClothesOnline 3D viewer
+
+newmtl hoodie_material
+Ns 64
+Ni 1.0
+d 1
+Tr 0
+Tf 1 1 1
+illum 2
+Ka 0.3 0.3 0.3
+Kd 0.9 0.9 0.9
+Ks 0.2 0.2 0.2
+Ke 0 0 0
+map_Kd hoodie_texture.png 

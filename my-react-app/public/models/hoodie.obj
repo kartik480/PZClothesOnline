@@ -1,0 +1,113 @@
+# Enhanced Hoodie OBJ file for PZClothesOnline
+# Created for better 3D visualization
+
+# Body vertices (more detailed)
+v -1.2 -1.8 0.2   # Bottom left front
+v 1.2 -1.8 0.2    # Bottom right front
+v 1.2 1.8 0.2     # Top right front
+v -1.2 1.8 0.2    # Top left front
+v -1.2 -1.8 -0.2  # Bottom left back
+v 1.2 -1.8 -0.2   # Bottom right back
+v 1.2 1.8 -0.2    # Top right back
+v -1.2 1.8 -0.2   # Top left back
+
+# Sleeve vertices (left) - more detailed
+v -1.8 0.8 0.2    # Left sleeve front top
+v -1.8 -0.8 0.2   # Left sleeve front bottom
+v -1.8 -0.8 -0.2  # Left sleeve back bottom
+v -1.8 0.8 -0.2   # Left sleeve back top
+v -1.4 0.8 0.2    # Left sleeve inner front top
+v -1.4 -0.8 0.2   # Left sleeve inner front bottom
+v -1.4 -0.8 -0.2  # Left sleeve inner back bottom
+v -1.4 0.8 -0.2   # Left sleeve inner back top
+
+# Sleeve vertices (right) - more detailed
+v 1.8 0.8 0.2     # Right sleeve front top
+v 1.8 -0.8 0.2    # Right sleeve front bottom
+v 1.8 -0.8 -0.2   # Right sleeve back bottom
+v 1.8 0.8 -0.2    # Right sleeve back top
+v 1.4 0.8 0.2     # Right sleeve inner front top
+v 1.4 -0.8 0.2    # Right sleeve inner front bottom
+v 1.4 -0.8 -0.2   # Right sleeve inner back bottom
+v 1.4 0.8 -0.2    # Right sleeve inner back top
+
+# Hood vertices - detailed hood
+v -0.8 1.8 0.2    # Hood bottom front left
+v 0.8 1.8 0.2     # Hood bottom front right
+v 0.8 1.8 -0.2    # Hood bottom back right
+v -0.8 1.8 -0.2   # Hood bottom back left
+v -1.0 2.2 0.2    # Hood top front left
+v 1.0 2.2 0.2     # Hood top front right
+v 1.0 2.2 -0.2    # Hood top back right
+v -1.0 2.2 -0.2   # Hood top back left
+v -0.8 2.5 0.1    # Hood peak left
+v 0.8 2.5 0.1     # Hood peak right
+v 0.8 2.5 -0.1    # Hood peak back right
+v -0.8 2.5 -0.1   # Hood peak back left
+
+# Face definitions - Body
+# Front body
+f 1 2 3 4
+# Back body
+f 5 8 7 6
+# Left side
+f 1 4 8 5
+# Right side
+f 2 6 7 3
+# Top (excluding hood area)
+f 4 3 7 8
+# Bottom
+f 1 5 6 2
+
+# Left sleeve faces
+# Outer sleeve
+f 9 10 11 12
+f 9 12 8 4
+f 10 1 5 11
+f 9 4 1 10
+f 12 11 5 8
+# Inner sleeve
+f 13 14 15 16
+f 13 16 8 4
+f 14 1 5 15
+f 13 4 1 14
+f 16 15 5 8
+# Sleeve ends
+f 9 13 14 10
+f 12 16 15 11
+
+# Right sleeve faces
+# Outer sleeve
+f 17 18 19 20
+f 17 20 7 3
+f 18 2 6 19
+f 17 3 2 18
+f 20 19 6 7
+# Inner sleeve
+f 21 22 23 24
+f 21 24 7 3
+f 22 2 6 23
+f 21 3 2 22
+f 24 23 6 7
+# Sleeve ends
+f 17 21 22 18
+f 20 24 23 19
+
+# Hood faces
+# Front hood
+f 25 26 30 29
+# Back hood
+f 27 28 32 31
+# Left hood side
+f 25 29 31 27
+# Right hood side
+f 26 30 32 28
+# Top hood
+f 29 30 32 31
+# Hood peak
+f 33 34 38 37
+f 34 35 39 38
+f 35 36 40 39
+f 36 33 37 40
+# Hood bottom (connects to body)
+f 25 26 28 27 

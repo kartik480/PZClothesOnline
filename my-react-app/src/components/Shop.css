@@ -342,7 +342,7 @@ button:focus {
 .add-to-cart-btn {
   width: 100%;
   padding: 1rem;
-  background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);
+  background: #000000;
   color: white;
   border: none;
   border-radius: 25px;
@@ -354,7 +354,7 @@ button:focus {
   -webkit-tap-highlight-color: transparent;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
@@ -372,8 +372,8 @@ button:focus {
 
 .add-to-cart-btn:hover {
   transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 8px 25px rgba(255, 107, 107, 0.5);
-  background: linear-gradient(135deg, #feca57 0%, #ff6b6b 100%);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+  background: #333333;
 }
 
 .add-to-cart-btn:hover::before {
@@ -616,7 +616,7 @@ button:focus {
 .popular-series-info .add-to-cart {
   width: 100%;
   padding: 8px;
-  background: #ff0000;
+  background: #000000;
   color: white;
   border: none;
   border-radius: 6px;
@@ -628,7 +628,7 @@ button:focus {
 }
 
 .popular-series-info .add-to-cart:hover {
-  background: #cc0000;
+  background: #333333;
 }
 
 @media (max-width: 576px) {

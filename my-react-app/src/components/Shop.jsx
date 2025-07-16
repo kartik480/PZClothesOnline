@@ -258,7 +258,9 @@ const Shop = () => {
     '/public/fn2.png',
     '/public/fn3.png', 
     '/public/fn4.png',
-    '/public/fn5.png'
+    '/public/fn5.png',
+    '/public/fn6.png',
+    '/public/fn7.png'
   ];
   
   return (

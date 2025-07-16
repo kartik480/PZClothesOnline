@@ -252,35 +252,43 @@ const Shop = () => {
   };
 
   const renderProductGrid = () => {
-    if (selectedSubcategory === 'Men\'s Sleeveless T-Shirt') {
-      return (
-        <div className="product-grid">
-          {[...Array(12)].map((_, index) => (
-            <div key={index} className="product-card">
-              <div className="product-image">
-                <img 
-                  src={`https://source.unsplash.com/300x400?anime,tshirt,${index}`} 
-                  alt={`Anime T-Shirt ${index + 1}`}
-                  onError={(e) => {
-                    e.target.src = 'https://via.placeholder.com/300x400?text=Anime+T-Shirt';
-                  }}
-                />
-              </div>
-              <div className="product-info">
-                <h3>Anime T-Shirt {index + 1}</h3>
-                <p className="price">$29.99</p>
-                <button 
-                  className="add-to-cart-btn"
-                  onClick={() => handleAddToCart({ id: index, name: `Anime T-Shirt ${index + 1}`, price: 29.99 })}
-                >
-                  Add to Cart
-                </button>
-              </div>
-            </div>
-          ))}
+   if (selectedSubcategory === 'Men\'s Sleeveless T-Shirt') {
+  // Import the images at the top of the file
+  const animeImages = [
+    '/public/fn2.png',
+    '/public/fn3.png', 
+    '/public/fn4.png',
+    '/public/fn5.png'
+  ];
+  
+  return (
+    <div className="product-grid">
+      {animeImages.map((image, index) => (
+        <div key={index} className="product-card">
+          <div className="product-image">
+            <img 
+              src={image}
+              alt={`Anime T-Shirt ${index + 1}`}
+              onError={(e) => {
+                e.target.src = 'https://via.placeholder.com/300x400?text=Anime+T-Shirt';
+              }}
+            />
+          </div>
+          <div className="product-info">
+            <h3>Anime T-Shirt {index + 1}</h3>
+            <p className="price">$29.99</p>
+            <button 
+              className="add-to-cart-btn"
+              onClick={() => handleAddToCart({ id: index, name: `Anime T-Shirt ${index + 1}`, price: 29.99 })}
+            >
+              Add to Cart
+            </button>
+          </div>
         </div>
-      );
-    }
+      ))}
+    </div>
+  );
+}
     if (selectedSubcategory === 'Pzn') {
       return (
         <div className="product-grid">
